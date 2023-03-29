@@ -41,7 +41,8 @@ def get_event_action_state(event: Event):
     except KeyError:
         raise HTTPException(
             status_code=400,
-            detail=f'The event "{event}" is not supported. Please choose from the following supported events: {[str(e) for e in Event]}'
+            detail=f'The event "{event}" is not supported. '
+                   f'Please choose from the following supported events: {[str(e) for e in Event]}'
         )
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f'Internal server error: {str(exc)}')
