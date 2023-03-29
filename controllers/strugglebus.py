@@ -4,6 +4,7 @@ import random
 from fastapi import HTTPException, APIRouter
 
 from models.strugglebus import Event
+from services.strugglebus import get_random_action_state
 
 router = APIRouter()
 
@@ -18,13 +19,13 @@ def get_event_action_state(event: Event):
 
     Event     Description
     ----------------------------------------------
-    GPC       Consume Alpha-GPC
-    LTH       Consume L-Theanine
-    RSV       Consume Resveratrol
-    OG3       Consume Omega-3 fish oil (EPA+DHA)
-    DAY       Skip dinner (once a week)
-    MON       Fast entire day (once a month)
-    TRI       Fast 3 consecutive days (once a quarter)
+    GPC       Consume Alpha-GPC \n
+    LTH       Consume L-Theanine \n
+    RSV       Consume Resveratrol \n
+    OG3       Consume Omega-3 fish oil (EPA+DHA) \n
+    DAY       Skip dinner (once a week) \n
+    MON       Fast entire day (once a month) \n
+    TRI       Fast 3 consecutive days (once a quarter) \n
 
     Args:
         event: Event
@@ -32,8 +33,7 @@ def get_event_action_state(event: Event):
     Returns: bool, indicating the event outcome.
     """
     try:
-        probability = float(os.getenv(event))
-        return random.random() < probability
+        return get_random_action_state(event=event)
     except KeyError:
         raise HTTPException(status_code=400, detail=f"The event '{event}' is not supported. Please choose from the following supported events: {[str(e) for e in Event]}")
     except Exception as exc:
