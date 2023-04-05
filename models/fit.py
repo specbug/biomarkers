@@ -1,4 +1,7 @@
+import datetime
 from enum import Enum
+from pydantic import BaseModel, Field
+from typing import Optional, Union
 
 
 class StrEnum(str, Enum):
@@ -45,3 +48,9 @@ class Mode(StrEnum):
             cls.BODY_FAT: DataTypes.BODY_FAT_PERCENTAGE,
         }
         return mode_data_type_map[mode]
+
+
+class MetricRes(BaseModel):
+    start_time: datetime.datetime
+    end_time: datetime.datetime
+    value: Optional[Union[int, float]] = Field(default=None)
