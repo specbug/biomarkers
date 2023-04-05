@@ -1,7 +1,7 @@
 import datetime
 from enum import Enum
 from pydantic import BaseModel, Field
-from typing import Optional, Union
+from typing import Optional, Union, List, Any
 
 
 class StrEnum(str, Enum):
@@ -70,3 +70,8 @@ class MetricRes(BaseModel):
     start_dt: datetime.datetime
     end_dt: datetime.datetime
     value: Optional[Union[int, float]] = Field(default=None)
+
+
+class ResponseModel(BaseModel):
+    x: List[str]
+    y: List[Any]
