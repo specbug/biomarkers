@@ -51,7 +51,7 @@ class FitClient:
                         if dtype == DTypes.INT:
                             metric_value = value['intVal']
                         elif dtype == DTypes.FLOAT:
-                            metric_value = value['intVal']
+                            metric_value = value['fpVal']
                         else:
                             raise KeyError(
                                 f'Parsing client response for "{dtype}" data-type is not supported\n'
