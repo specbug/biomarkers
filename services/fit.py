@@ -75,8 +75,7 @@ class FitClient:
         steps_data = pd.DataFrame.from_records([c.dict() for c in steps_data_raw])
         steps_data['start_dt'] = steps_data['start_dt'].dt.strftime('%Y-%m-%d')
         steps_data = steps_data.groupby(['start_dt'])['value'].sum().reset_index()
-        if mode_dtype == DTypes.INT:
-            steps_data['value'] = steps_data['value'].astype(int)
+        steps_data['value'] = steps_data['value'].astype(int)
         res = ResponseModel(x=steps_data['start_dt'].tolist(), y=steps_data['value'].tolist())
         return res
 
@@ -96,8 +95,6 @@ class FitClient:
         sleep_data['value'] = ((sleep_data['end_dt'] - sleep_data['start_dt']).dt.total_seconds()).astype(int)
         sleep_data['start_dt'] = sleep_data['start_dt'].dt.strftime('%Y-%m-%d')
         sleep_data = sleep_data.groupby(['start_dt', 'type'])['value'].sum().reset_index()
-        if mode_dtype == DTypes.INT:
-            sleep_data['value'] = sleep_data['value'].astype(int)
         if breakdown:
             # sleep_types_map = Mode.get_sleep_types(core=False)
             # sleep_data['type'] = sleep_data['type'].replace(sleep_types_map)
