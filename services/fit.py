@@ -182,3 +182,21 @@ class FitClient:
         rhr_data['value'] = rhr_data['value'].round(1)
         res = ResponseModel(x=rhr_data['start_dt'].tolist(), y=rhr_data['value'].tolist())
         return res
+
+    def get_body_fat(
+        self, start_date: datetime.datetime, end_date: datetime.datetime
+    ) -> Union[ResponseModel, NoneType]:
+        """Get body fat (%), agg daily"""
+        res_data = self.get_data(mode=Mode.BODY_FAT, start_date=start_date, end_date=end_date)
+        if res_data is None or len(res_data) == 0:
+            return
+        mode_dtype = Mode.get_dtype(Mode.BODY_FAT)
+        bf_data_raw = self.parse_data(data=res_data, dtype=mode_dtype)
+        if len(bf_data_raw) == 0:
+            return
+        bf_data = pd.DataFrame.from_records([c.dict() for c in bf_data_raw])
+        bf_data['start_dt'] = bf_data['start_dt'].dt.strftime('%Y-%m-%d')
+        bf_data = bf_data.groupby('start_dt')['value'].mean().reset_index()
+        bf_data['value'] = bf_data['value'].round(1)
+        res = ResponseModel(x=bf_data['start_dt'].tolist(), y=bf_data['value'].tolist())
+        return res
