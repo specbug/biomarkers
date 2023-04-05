@@ -2,10 +2,13 @@ import datetime
 import os
 from typing import Optional, List
 
+import pandas as pd
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
-from models.fit import Mode, MetricRes, DTypes
+from models.fit import Mode, MetricRes, DTypes, ResponseModel, Union
+
+NoneType = type(None)
 
 
 class FitClient:
@@ -51,10 +54,28 @@ class FitClient:
                             metric_value = value['intVal']
                         else:
                             raise KeyError(
-                                f'Parsing client response for "{dtype}" data-type is not supported\nPlease choose from: {[d for d in DTypes]}.'
+                                f'Parsing client response for "{dtype}" data-type is not supported\n'
+                                f'Please choose from: {[d for d in DTypes]}.'
                             )
                         start_dt = datetime.datetime.fromtimestamp(int(point['startTimeNanos']) // 1e9)
                         end_dt = datetime.datetime.fromtimestamp(int(point['endTimeNanos']) // 1e9)
                         _res = MetricRes(start_dt=start_dt, end_dt=end_dt, value=metric_value)
                         res.append(_res)
+        return res
+
+    def get_steps(self, start_date: datetime.datetime, end_date: datetime.datetime) -> Union[ResponseModel, NoneType]:
+        """Get steps data, agg daily."""
+        res_data = self.get_data(mode=Mode.STEPS, start_date=start_date, end_date=end_date)
+        if res_data is None or len(res_data) == 0:
+            return
+        mode_dtype = Mode.get_dtype(Mode.STEPS)
+        steps_data_raw = self.parse_data(data=res_data, dtype=mode_dtype)
+        if len(steps_data_raw) == 0:
+            return
+        steps_data = pd.DataFrame.from_records([c.dict() for c in steps_data_raw])
+        steps_data['start_dt'] = steps_data['start_dt'].dt.strftime('%Y-%m-%d')
+        steps_data = steps_data.groupby(['start_dt'])['value'].sum().reset_index()
+        if mode_dtype == DTypes.INT:
+            steps_data['value'] = steps_data['value'].astype(int)
+        res = ResponseModel(x=steps_data['start_dt'].tolist(), y=steps_data['value'].tolist())
         return res
