@@ -36,12 +36,37 @@ class DTypes(StrEnum):
     FLOAT = 'float'
 
 
+class SleepTypes(StrEnum):
+    UNSPECIFIED = "unspecified"
+    AWAKE = "awake"
+    GENERIC = "generic"
+    OUT_OF_BED = "out_of_bed"
+    LIGHT = "light"
+    DEEP = "deep"
+    REM = "rem"
+
+
 class Mode(StrEnum):
     STEPS = 'steps'
     SLEEP = 'sleep'
     MET = 'met'
     RHR = 'rhr'
     BODY_FAT = 'body_fat'
+
+    @classmethod
+    def get_sleep_types(cls, core=True) -> dict:
+        sleep_type_dict = {
+            0: SleepTypes.UNSPECIFIED,
+            1: SleepTypes.AWAKE,
+            2: SleepTypes.GENERIC,
+            3: SleepTypes.OUT_OF_BED,
+            4: SleepTypes.LIGHT,
+            5: SleepTypes.DEEP,
+            6: SleepTypes.REM,
+        }
+        if core:
+            return {k: v for k, v in sleep_type_dict.items() if k in [2, 4, 5, 6]}
+        return sleep_type_dict
 
     @classmethod
     def get_mode_uri(cls, mode):
