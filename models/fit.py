@@ -18,3 +18,11 @@ class Scopes(StrEnum):
     OXYGEN_SATURATION = 'https://www.googleapis.com/auth/fitness.oxygen_saturation.read'
     REPRODUCTIVE_HEALTH = 'https://www.googleapis.com/auth/fitness.reproductive_health.read'
     HEART_RATE = 'https://www.googleapis.com/auth/fitness.heart_rate.read'
+
+
+class DataTypes(StrEnum):
+    STEP_COUNT_DELTA = 'com.google.step_count.delta'
+    SLEEP_SEGMENT = 'com.google.sleep.segment'
+    HEART_MINUTES = 'com.google.heart_minutes'
+    HEART_RATE_BPM = 'com.google.heart_rate.bpm'
+    BODY_FAT_PERCENTAGE = 'com.google.body.fat.percentage'
