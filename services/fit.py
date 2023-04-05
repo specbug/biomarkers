@@ -106,3 +106,26 @@ class FitClient:
             sleep_data['value'] = (sleep_data['value'] / 3600).round(1)
             res = ResponseModel(x=sleep_data['start_dt'].tolist(), y=sleep_data['value'].tolist())
         return res
+
+    def get_met_hours(
+        self, start_date: datetime.datetime, end_date: datetime.datetime
+    ) -> Union[ResponseModel, NoneType]:
+        """Get MET hours, agg daily."""
+        res_data = self.get_data(mode=Mode.MET, start_date=start_date, end_date=end_date)
+        if res_data is None or len(res_data) == 0:
+            return
+        mode_dtype = Mode.get_dtype(Mode.MET)
+        met_data_raw = self.parse_data(data=res_data, dtype=mode_dtype)
+        if len(met_data_raw) == 0:
+            return
+        met_data = pd.DataFrame.from_records([c.dict() for c in met_data_raw])
+        met_data['timedelta'] = (((met_data['end_dt'] - met_data['start_dt']).dt.total_seconds()) / 60).astype(int)
+        met_data['norm_value'] = (met_data['value'] / met_data['delta_mins']).astype(int)
+        met_data.loc[:, 'met'] = 4.5
+        met_data.loc[met_data['norm_value'] == 2, 'met'] = 6.0
+        met_data['start_dt'] = met_data['start_dt'].dt.strftime('%Y-%m-%d')
+        met_data = met_data.groupby(['start_dt', 'met'])['timedelta'].sum().reset_index()
+        met_data['value'] = (met_data['met'] * met_data['delta_mins'] / 60).round(1)
+        met_data = met_data.groupby('start_dt')['value'].sum().reset_index()
+        res = ResponseModel(x=met_data['start_dt'].tolist(), y=met_data['value'].tolist())
+        return res
