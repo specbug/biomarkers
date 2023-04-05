@@ -67,6 +67,6 @@ class Mode(StrEnum):
 
 
 class MetricRes(BaseModel):
-    start_time: datetime.datetime
-    end_time: datetime.datetime
+    start_dt: datetime.datetime
+    end_dt: datetime.datetime
     value: Optional[Union[int, float]] = Field(default=None)
