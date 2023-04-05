@@ -62,6 +62,11 @@ class SleepTypes(StrEnum):
         return sleep_type_dict
 
 
+class HRRestRange:
+    MIN_RHR = 40
+    MAX_RHR = 120
+
+
 class Mode(StrEnum):
     STEPS = 'steps'
     SLEEP = 'sleep'
