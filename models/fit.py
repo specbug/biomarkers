@@ -45,14 +45,6 @@ class SleepTypes(StrEnum):
     DEEP = "deep"
     REM = "rem"
 
-
-class Mode(StrEnum):
-    STEPS = 'steps'
-    SLEEP = 'sleep'
-    MET = 'met'
-    RHR = 'rhr'
-    BODY_FAT = 'body_fat'
-
     @classmethod
     def get_sleep_types(cls, core=True) -> dict:
         sleep_type_dict = {
@@ -67,6 +59,14 @@ class Mode(StrEnum):
         if core:
             return {k: v for k, v in sleep_type_dict.items() if k in [2, 4, 5, 6]}
         return sleep_type_dict
+
+
+class Mode(StrEnum):
+    STEPS = 'steps'
+    SLEEP = 'sleep'
+    MET = 'met'
+    RHR = 'rhr'
+    BODY_FAT = 'body_fat'
 
     @classmethod
     def get_mode_uri(cls, mode):

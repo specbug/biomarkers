@@ -6,7 +6,7 @@ import pandas as pd
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
-from models.fit import Mode, MetricRes, DTypes, ResponseModel, Union
+from models.fit import Mode, MetricRes, DTypes, ResponseModel, Union, SleepTypes
 
 NoneType = type(None)
 
@@ -100,7 +100,7 @@ class FitClient:
             # sleep_data['type'] = sleep_data['type'].replace(sleep_types_map)
             raise NotImplementedError
         else:
-            core_sleep_types = list(Mode.get_sleep_types(core=True))
+            core_sleep_types = list(SleepTypes.get_sleep_types(core=True))
             sleep_data = sleep_data[sleep_data['type'].isin(core_sleep_types)].reset_index(drop=True)
             sleep_data = sleep_data.groupby(['start_dt'])['value'].sum().reset_index()
             sleep_data['value'] = (sleep_data['value'] / 3600).round(1)
