@@ -6,7 +6,7 @@ import pandas as pd
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
-from models.fit import Mode, MetricRes, DTypes, ResponseModel, Union, SleepTypes
+from models.fit import Mode, MetricRes, DTypes, ResponseModel, Union, SleepTypes, HRRestRange
 
 NoneType = type(None)
 
@@ -128,4 +128,57 @@ class FitClient:
         met_data['value'] = (met_data['met'] * met_data['delta_mins'] / 60).round(1)
         met_data = met_data.groupby('start_dt')['value'].sum().reset_index()
         res = ResponseModel(x=met_data['start_dt'].tolist(), y=met_data['value'].tolist())
+        return res
+
+    @staticmethod
+    def _is_ts_in_intervals(ts: datetime.datetime, intervals: List[List[datetime.datetime]]) -> bool:
+        """Check if the timestamp falls between an interval, among a list of intervals."""
+        s = 0
+        e = len(intervals) - 1
+        while s < e:
+            mid = (s + e) // 2
+            if intervals[mid][0] <= ts <= intervals[mid][1]:
+                return True
+            elif ts > intervals[mid][0]:
+                s = mid + 1
+            else:
+                e = mid
+        return False
+
+    def get_rhr(self, start_date: datetime.datetime, end_date: datetime.datetime) -> Union[ResponseModel, NoneType]:
+        """Get resting heart rate, agg daily"""
+        # fetch heart rate data (bpm)
+        res_data = self.get_data(mode=Mode.RHR, start_date=start_date, end_date=end_date)
+        if res_data is None or len(res_data) == 0:
+            return
+        mode_dtype = Mode.get_dtype(Mode.RHR)
+        rhr_data_raw = self.parse_data(data=res_data, dtype=mode_dtype)
+        if len(rhr_data_raw) == 0:
+            return
+        rhr_data = pd.DataFrame.from_records([c.dict() for c in rhr_data_raw])
+        rhr_data['start_dt'] = pd.to_datetime(rhr_data['start_dt'].dt.strftime('%Y-%m-%d %H:%M'))
+        rhr_data = rhr_data.groupby('start_dt')['value'].mean().reset_index()
+        # remove outliers
+        rhr_data = rhr_data[
+            (rhr_data['value'] < HRRestRange.MAX_RHR) & (rhr_data['value'] > HRRestRange.MIN_RHR)
+        ].reset_index(drop=True)
+        # fetch all periods of activity
+        activity_res_data = self.get_data(mode=Mode.ACTIVITY, start_date=start_date, end_date=end_date)
+        activity_periods = None
+        if activity_res_data:
+            activity_periods = []
+            activity_data: List[MetricRes] = self.parse_data(data=activity_res_data)
+            for a in sorted(activity_data, key=lambda x: (x.start_dt, x.end_dt)):
+                if (a.end_dt - a.start_dt).total_seconds() < 60:
+                    continue
+                activity_periods.append([a.start_dt, a.end_dt])
+        # truncate HR data coinciding with some period of activity (non-rest HR)
+        if activity_periods:
+            rhr_data['active'] = rhr_data['start_dt'].apply(lambda x: self._is_ts_in_intervals(x, activity_periods))
+            rhr_data = rhr_data[~rhr_data['active']].reset_index(drop=True)
+        # agg to daily
+        rhr_data['start_dt'] = rhr_data['start_dt'].dt.strftime('%Y-%m-%d')
+        rhr_data = rhr_data.groupby('start_dt')['value'].mean().reset_index()
+        rhr_data['value'] = rhr_data['value'].round(1)
+        res = ResponseModel(x=rhr_data['start_dt'].tolist(), y=rhr_data['value'].tolist())
         return res
