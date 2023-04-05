@@ -79,3 +79,33 @@ class FitClient:
             steps_data['value'] = steps_data['value'].astype(int)
         res = ResponseModel(x=steps_data['start_dt'].tolist(), y=steps_data['value'].tolist())
         return res
+
+    def get_sleep(
+        self, start_date: datetime.datetime, end_date: datetime.datetime, breakdown=False
+    ) -> Union[ResponseModel, NoneType]:
+        """Get sleep data, agg daily (repr by start date)."""
+        res_data = self.get_data(mode=Mode.SLEEP, start_date=start_date, end_date=end_date)
+        if res_data is None or len(res_data) == 0:
+            return
+        mode_dtype = Mode.get_dtype(Mode.SLEEP)
+        sleep_data_raw = self.parse_data(data=res_data, dtype=mode_dtype)
+        if len(sleep_data_raw) == 0:
+            return
+        sleep_data = pd.DataFrame.from_records([c.dict() for c in sleep_data_raw])
+        sleep_data.loc[:, 'type'] = sleep_data.loc[:, 'value']
+        sleep_data['value'] = ((sleep_data['end_dt'] - sleep_data['start_dt']).dt.total_seconds()).astype(int)
+        sleep_data['start_dt'] = sleep_data['start_dt'].dt.strftime('%Y-%m-%d')
+        sleep_data = sleep_data.groupby(['start_dt', 'type'])['value'].sum().reset_index()
+        if mode_dtype == DTypes.INT:
+            sleep_data['value'] = sleep_data['value'].astype(int)
+        if breakdown:
+            # sleep_types_map = Mode.get_sleep_types(core=False)
+            # sleep_data['type'] = sleep_data['type'].replace(sleep_types_map)
+            raise NotImplementedError
+        else:
+            core_sleep_types = list(Mode.get_sleep_types(core=True))
+            sleep_data = sleep_data[sleep_data['type'].isin(core_sleep_types)].reset_index(drop=True)
+            sleep_data = sleep_data.groupby(['start_dt'])['value'].sum().reset_index()
+            sleep_data['value'] = (sleep_data['value'] / 3600).round(1)
+            res = ResponseModel(x=sleep_data['start_dt'].tolist(), y=sleep_data['value'].tolist())
+        return res
