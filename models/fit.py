@@ -31,6 +31,11 @@ class ModeURI(StrEnum):
     BODY_FAT_PERCENTAGE = 'com.google.body.fat.percentage'
 
 
+class DTypes(StrEnum):
+    INT = 'int'
+    FLOAT = 'float'
+
+
 class Mode(StrEnum):
     STEPS = 'steps'
     SLEEP = 'sleep'
@@ -48,6 +53,17 @@ class Mode(StrEnum):
             cls.BODY_FAT: ModeURI.BODY_FAT_PERCENTAGE,
         }
         return mode_uri_map[mode]
+
+    @classmethod
+    def get_dtype(cls, mode):
+        mode_dtype_map = {
+            cls.STEPS: DTypes.INT,
+            cls.SLEEP: DTypes.INT,
+            cls.MET: DTypes.FLOAT,
+            cls.RHR: DTypes.FLOAT,
+            cls.BODY_FAT: DTypes.FLOAT,
+        }
+        return mode_dtype_map[mode]
 
 
 class MetricRes(BaseModel):
