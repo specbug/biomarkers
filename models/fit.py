@@ -29,6 +29,7 @@ class ModeURI(StrEnum):
     HEART_MINUTES = 'com.google.heart_minutes'
     HEART_RATE_BPM = 'com.google.heart_rate.bpm'
     BODY_FAT_PERCENTAGE = 'com.google.body.fat.percentage'
+    ACTIVITY_SEGMENT = 'com.google.activity.segment'
 
 
 class DTypes(StrEnum):
@@ -66,6 +67,7 @@ class Mode(StrEnum):
     SLEEP = 'sleep'
     MET = 'met'
     RHR = 'rhr'
+    ACTIVITY = 'activity'
     BODY_FAT = 'body_fat'
 
     @classmethod
@@ -76,6 +78,7 @@ class Mode(StrEnum):
             cls.MET: ModeURI.HEART_MINUTES,
             cls.RHR: ModeURI.HEART_RATE_BPM,
             cls.BODY_FAT: ModeURI.BODY_FAT_PERCENTAGE,
+            cls.ACTIVITY: ModeURI.ACTIVITY_SEGMENT,
         }
         return mode_uri_map[mode]
 
@@ -87,6 +90,7 @@ class Mode(StrEnum):
             cls.MET: DTypes.FLOAT,
             cls.RHR: DTypes.FLOAT,
             cls.BODY_FAT: DTypes.FLOAT,
+            cls.ACTIVITY: DTypes.INT,
         }
         return mode_dtype_map[mode]
 
