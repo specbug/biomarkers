@@ -23,7 +23,7 @@ class Scopes(StrEnum):
     HEART_RATE = 'https://www.googleapis.com/auth/fitness.heart_rate.read'
 
 
-class DataTypes(StrEnum):
+class ModeURI(StrEnum):
     STEP_COUNT_DELTA = 'com.google.step_count.delta'
     SLEEP_SEGMENT = 'com.google.sleep.segment'
     HEART_MINUTES = 'com.google.heart_minutes'
@@ -39,15 +39,15 @@ class Mode(StrEnum):
     BODY_FAT = 'body_fat'
 
     @classmethod
-    def get_data_type(cls, mode):
-        mode_data_type_map = {
-            cls.STEPS: DataTypes.STEP_COUNT_DELTA,
-            cls.SLEEP: DataTypes.SLEEP_SEGMENT,
-            cls.MET: DataTypes.HEART_MINUTES,
-            cls.RHR: DataTypes.HEART_RATE_BPM,
-            cls.BODY_FAT: DataTypes.BODY_FAT_PERCENTAGE,
+    def get_mode_uri(cls, mode):
+        mode_uri_map = {
+            cls.STEPS: ModeURI.STEP_COUNT_DELTA,
+            cls.SLEEP: ModeURI.SLEEP_SEGMENT,
+            cls.MET: ModeURI.HEART_MINUTES,
+            cls.RHR: ModeURI.HEART_RATE_BPM,
+            cls.BODY_FAT: ModeURI.BODY_FAT_PERCENTAGE,
         }
-        return mode_data_type_map[mode]
+        return mode_uri_map[mode]
 
 
 class MetricRes(BaseModel):
