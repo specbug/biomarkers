@@ -26,3 +26,22 @@ class DataTypes(StrEnum):
     HEART_MINUTES = 'com.google.heart_minutes'
     HEART_RATE_BPM = 'com.google.heart_rate.bpm'
     BODY_FAT_PERCENTAGE = 'com.google.body.fat.percentage'
+
+
+class Mode(StrEnum):
+    STEPS = 'steps'
+    SLEEP = 'sleep'
+    MET = 'met'
+    RHR = 'rhr'
+    BODY_FAT = 'body_fat'
+
+    @classmethod
+    def get_data_type(cls, mode):
+        mode_data_type_map = {
+            cls.STEPS: DataTypes.STEP_COUNT_DELTA,
+            cls.SLEEP: DataTypes.SLEEP_SEGMENT,
+            cls.MET: DataTypes.HEART_MINUTES,
+            cls.RHR: DataTypes.HEART_RATE_BPM,
+            cls.BODY_FAT: DataTypes.BODY_FAT_PERCENTAGE,
+        }
+        return mode_data_type_map[mode]
