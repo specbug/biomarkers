@@ -6,15 +6,17 @@ import pandas as pd
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
-from models.fit import Mode, MetricRes, DTypes, ResponseModel, Union, SleepTypes, HRRestRange
+from models.fit import Mode, MetricRes, DTypes, ResponseModel, Union, SleepTypes, HRRestRange, Scopes
 
 NoneType = type(None)
 
 
 class FitClient:
-    def __init__(self, scopes):
-        creds = Credentials.from_authorized_user_file(os.environ['gfit_credentials_file'], scopes)
-        self.client = build(os.environ['gfit_service'], os.environ['gfit_version'], credentials=creds)
+    def __init__(self, scopes: Optional[List[str]] = None):
+        if not scopes:
+            scopes = [scope.value for scope in Scopes]
+        creds = Credentials.from_authorized_user_file(os.environ['GFIT_CREDENTIALS_FILE'], scopes)
+        self.client = build(os.environ['GFIT_SERVICE'], os.environ['GFIT_VERSION'], credentials=creds)
 
     def get_all_datasources(self) -> dict:
         """Get all datasources."""
