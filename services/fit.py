@@ -120,13 +120,14 @@ class FitClient:
             return
         met_data = pd.DataFrame.from_records([c.dict() for c in met_data_raw])
         met_data['timedelta'] = (((met_data['end_dt'] - met_data['start_dt']).dt.total_seconds()) / 60).astype(int)
-        met_data['norm_value'] = (met_data['value'] / met_data['delta_mins']).astype(int)
+        met_data['norm_value'] = (met_data['value'] / met_data['timedelta']).astype(int)
         met_data.loc[:, 'met'] = 4.5
         met_data.loc[met_data['norm_value'] == 2, 'met'] = 6.0
         met_data['start_dt'] = met_data['start_dt'].dt.strftime('%Y-%m-%d')
         met_data = met_data.groupby(['start_dt', 'met'])['timedelta'].sum().reset_index()
-        met_data['value'] = (met_data['met'] * met_data['delta_mins'] / 60).round(1)
+        met_data['value'] = (met_data['met'] * met_data['timedelta'] / 60).round(1)
         met_data = met_data.groupby('start_dt')['value'].sum().reset_index()
+        met_data['value'] = met_data['value'].round(1)
         res = ResponseModel(x=met_data['start_dt'].tolist(), y=met_data['value'].tolist())
         return res
 
