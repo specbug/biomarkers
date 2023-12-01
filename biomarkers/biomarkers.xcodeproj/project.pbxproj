@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5913CFA32B19F30C003F3D16 /* JetBrainsMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFA22B19F30C003F3D16 /* JetBrainsMono-Regular.ttf */; };
+		5913CFA62B19F578003F3D16 /* JetBrainsMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFA42B19F578003F3D16 /* JetBrainsMono-Italic.ttf */; };
+		5913CFA72B19F578003F3D16 /* JetBrainsMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFA52B19F578003F3D16 /* JetBrainsMono-Bold.ttf */; };
+		5913CFA92B19F588003F3D16 /* Iowan Old Style.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFA82B19F588003F3D16 /* Iowan Old Style.ttc */; };
+		5913CFBD2B19FDED003F3D16 /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFAD2B19FDEC003F3D16 /* WorkSans-Regular.ttf */; };
+		5913CFBE2B19FDED003F3D16 /* WorkSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFAE2B19FDEC003F3D16 /* WorkSans-ExtraBold.ttf */; };
+		5913CFBF2B19FDED003F3D16 /* WorkSans-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFAF2B19FDED003F3D16 /* WorkSans-BlackItalic.ttf */; };
+		5913CFC02B19FDED003F3D16 /* WorkSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB02B19FDED003F3D16 /* WorkSans-ExtraLightItalic.ttf */; };
+		5913CFC12B19FDED003F3D16 /* WorkSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB12B19FDED003F3D16 /* WorkSans-ExtraLight.ttf */; };
+		5913CFC22B19FDED003F3D16 /* WorkSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB22B19FDED003F3D16 /* WorkSans-SemiBoldItalic.ttf */; };
+		5913CFC32B19FDED003F3D16 /* WorkSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB32B19FDED003F3D16 /* WorkSans-Italic.ttf */; };
+		5913CFC42B19FDED003F3D16 /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB42B19FDED003F3D16 /* WorkSans-Bold.ttf */; };
+		5913CFC52B19FDED003F3D16 /* WorkSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB52B19FDED003F3D16 /* WorkSans-BoldItalic.ttf */; };
+		5913CFC62B19FDED003F3D16 /* WorkSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB62B19FDED003F3D16 /* WorkSans-SemiBold.ttf */; };
+		5913CFC72B19FDED003F3D16 /* WorkSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB72B19FDED003F3D16 /* WorkSans-LightItalic.ttf */; };
+		5913CFC82B19FDED003F3D16 /* WorkSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB82B19FDED003F3D16 /* WorkSans-Black.ttf */; };
+		5913CFC92B19FDED003F3D16 /* WorkSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB92B19FDED003F3D16 /* WorkSans-Light.ttf */; };
+		5913CFCA2B19FDED003F3D16 /* WorkSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFBA2B19FDED003F3D16 /* WorkSans-Thin.ttf */; };
+		5913CFCB2B19FDED003F3D16 /* WorkSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFBB2B19FDED003F3D16 /* WorkSans-ThinItalic.ttf */; };
+		5913CFCC2B19FDED003F3D16 /* WorkSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFBC2B19FDED003F3D16 /* WorkSans-ExtraBoldItalic.ttf */; };
+		5913CFCF2B19FDF7003F3D16 /* WorkSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFCD2B19FDF7003F3D16 /* WorkSans-Medium.ttf */; };
+		5913CFD02B19FDF7003F3D16 /* WorkSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFCE2B19FDF7003F3D16 /* WorkSans-MediumItalic.ttf */; };
 		5946BABF2B17B33000803E95 /* biomarkersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5946BABE2B17B33000803E95 /* biomarkersApp.swift */; };
 		5946BAC12B17B33000803E95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5946BAC02B17B33000803E95 /* ContentView.swift */; };
 		5946BAC32B17B33200803E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5946BAC22B17B33200803E95 /* Assets.xcassets */; };
@@ -34,6 +56,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5913CFA22B19F30C003F3D16 /* JetBrainsMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Regular.ttf"; sourceTree = "<group>"; };
+		5913CFA42B19F578003F3D16 /* JetBrainsMono-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Italic.ttf"; sourceTree = "<group>"; };
+		5913CFA52B19F578003F3D16 /* JetBrainsMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Bold.ttf"; sourceTree = "<group>"; };
+		5913CFA82B19F588003F3D16 /* Iowan Old Style.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Iowan Old Style.ttc"; sourceTree = "<group>"; };
+		5913CFAD2B19FDEC003F3D16 /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.ttf"; sourceTree = "<group>"; };
+		5913CFAE2B19FDEC003F3D16 /* WorkSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		5913CFAF2B19FDED003F3D16 /* WorkSans-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-BlackItalic.ttf"; sourceTree = "<group>"; };
+		5913CFB02B19FDED003F3D16 /* WorkSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		5913CFB12B19FDED003F3D16 /* WorkSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		5913CFB22B19FDED003F3D16 /* WorkSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		5913CFB32B19FDED003F3D16 /* WorkSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Italic.ttf"; sourceTree = "<group>"; };
+		5913CFB42B19FDED003F3D16 /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.ttf"; sourceTree = "<group>"; };
+		5913CFB52B19FDED003F3D16 /* WorkSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		5913CFB62B19FDED003F3D16 /* WorkSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		5913CFB72B19FDED003F3D16 /* WorkSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		5913CFB82B19FDED003F3D16 /* WorkSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.ttf"; sourceTree = "<group>"; };
+		5913CFB92B19FDED003F3D16 /* WorkSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Light.ttf"; sourceTree = "<group>"; };
+		5913CFBA2B19FDED003F3D16 /* WorkSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Thin.ttf"; sourceTree = "<group>"; };
+		5913CFBB2B19FDED003F3D16 /* WorkSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ThinItalic.ttf"; sourceTree = "<group>"; };
+		5913CFBC2B19FDED003F3D16 /* WorkSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		5913CFCD2B19FDF7003F3D16 /* WorkSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Medium.ttf"; sourceTree = "<group>"; };
+		5913CFCE2B19FDF7003F3D16 /* WorkSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		5913CFD12B1A27B9003F3D16 /* WorkSans-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		5913CFD22B1A2B2E003F3D16 /* IowanOldStyle-Titling-07.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IowanOldStyle-Titling-07.ttf"; sourceTree = "<group>"; };
 		5946BABB2B17B33000803E95 /* biomarkers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = biomarkers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5946BABE2B17B33000803E95 /* biomarkersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomarkersApp.swift; sourceTree = "<group>"; };
 		5946BAC02B17B33000803E95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +90,7 @@
 		5946BAD52B17B33200803E95 /* biomarkersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = biomarkersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5946BAD92B17B33200803E95 /* biomarkersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomarkersUITests.swift; sourceTree = "<group>"; };
 		5946BADB2B17B33200803E95 /* biomarkersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomarkersUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5946BAE82B17B3D300803E95 /* biomarkers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = biomarkers.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +118,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5913CFA12B19F2DC003F3D16 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5913CFD22B1A2B2E003F3D16 /* IowanOldStyle-Titling-07.ttf */,
+				5913CFD12B1A27B9003F3D16 /* WorkSans-VariableFont_wght.ttf */,
+				5913CFCD2B19FDF7003F3D16 /* WorkSans-Medium.ttf */,
+				5913CFCE2B19FDF7003F3D16 /* WorkSans-MediumItalic.ttf */,
+				5913CFB82B19FDED003F3D16 /* WorkSans-Black.ttf */,
+				5913CFAF2B19FDED003F3D16 /* WorkSans-BlackItalic.ttf */,
+				5913CFB42B19FDED003F3D16 /* WorkSans-Bold.ttf */,
+				5913CFB52B19FDED003F3D16 /* WorkSans-BoldItalic.ttf */,
+				5913CFAE2B19FDEC003F3D16 /* WorkSans-ExtraBold.ttf */,
+				5913CFBC2B19FDED003F3D16 /* WorkSans-ExtraBoldItalic.ttf */,
+				5913CFB12B19FDED003F3D16 /* WorkSans-ExtraLight.ttf */,
+				5913CFB02B19FDED003F3D16 /* WorkSans-ExtraLightItalic.ttf */,
+				5913CFB32B19FDED003F3D16 /* WorkSans-Italic.ttf */,
+				5913CFB92B19FDED003F3D16 /* WorkSans-Light.ttf */,
+				5913CFB72B19FDED003F3D16 /* WorkSans-LightItalic.ttf */,
+				5913CFAD2B19FDEC003F3D16 /* WorkSans-Regular.ttf */,
+				5913CFB62B19FDED003F3D16 /* WorkSans-SemiBold.ttf */,
+				5913CFB22B19FDED003F3D16 /* WorkSans-SemiBoldItalic.ttf */,
+				5913CFBA2B19FDED003F3D16 /* WorkSans-Thin.ttf */,
+				5913CFBB2B19FDED003F3D16 /* WorkSans-ThinItalic.ttf */,
+				5913CFA82B19F588003F3D16 /* Iowan Old Style.ttc */,
+				5913CFA52B19F578003F3D16 /* JetBrainsMono-Bold.ttf */,
+				5913CFA42B19F578003F3D16 /* JetBrainsMono-Italic.ttf */,
+				5913CFA22B19F30C003F3D16 /* JetBrainsMono-Regular.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		5946BAB22B17B33000803E95 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +158,7 @@
 				5946BABC2B17B33000803E95 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		5946BABC2B17B33000803E95 /* Products */ = {
 			isa = PBXGroup;
@@ -94,6 +173,8 @@
 		5946BABD2B17B33000803E95 /* biomarkers */ = {
 			isa = PBXGroup;
 			children = (
+				5913CFA12B19F2DC003F3D16 /* fonts */,
+				5946BAE82B17B3D300803E95 /* biomarkers.entitlements */,
 				5946BABE2B17B33000803E95 /* biomarkersApp.swift */,
 				5946BAC02B17B33000803E95 /* ContentView.swift */,
 				5946BAC22B17B33200803E95 /* Assets.xcassets */,
@@ -232,7 +313,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				5946BAC62B17B33200803E95 /* Preview Assets.xcassets in Resources */,
+				5913CFD02B19FDF7003F3D16 /* WorkSans-MediumItalic.ttf in Resources */,
+				5913CFC22B19FDED003F3D16 /* WorkSans-SemiBoldItalic.ttf in Resources */,
+				5913CFA72B19F578003F3D16 /* JetBrainsMono-Bold.ttf in Resources */,
+				5913CFA92B19F588003F3D16 /* Iowan Old Style.ttc in Resources */,
+				5913CFC72B19FDED003F3D16 /* WorkSans-LightItalic.ttf in Resources */,
 				5946BAC32B17B33200803E95 /* Assets.xcassets in Resources */,
+				5913CFC62B19FDED003F3D16 /* WorkSans-SemiBold.ttf in Resources */,
+				5913CFC92B19FDED003F3D16 /* WorkSans-Light.ttf in Resources */,
+				5913CFCB2B19FDED003F3D16 /* WorkSans-ThinItalic.ttf in Resources */,
+				5913CFC02B19FDED003F3D16 /* WorkSans-ExtraLightItalic.ttf in Resources */,
+				5913CFC12B19FDED003F3D16 /* WorkSans-ExtraLight.ttf in Resources */,
+				5913CFBE2B19FDED003F3D16 /* WorkSans-ExtraBold.ttf in Resources */,
+				5913CFCF2B19FDF7003F3D16 /* WorkSans-Medium.ttf in Resources */,
+				5913CFCC2B19FDED003F3D16 /* WorkSans-ExtraBoldItalic.ttf in Resources */,
+				5913CFA62B19F578003F3D16 /* JetBrainsMono-Italic.ttf in Resources */,
+				5913CFBF2B19FDED003F3D16 /* WorkSans-BlackItalic.ttf in Resources */,
+				5913CFCA2B19FDED003F3D16 /* WorkSans-Thin.ttf in Resources */,
+				5913CFC82B19FDED003F3D16 /* WorkSans-Black.ttf in Resources */,
+				5913CFC32B19FDED003F3D16 /* WorkSans-Italic.ttf in Resources */,
+				5913CFA32B19F30C003F3D16 /* JetBrainsMono-Regular.ttf in Resources */,
+				5913CFBD2B19FDED003F3D16 /* WorkSans-Regular.ttf in Resources */,
+				5913CFC52B19FDED003F3D16 /* WorkSans-BoldItalic.ttf in Resources */,
+				5913CFC42B19FDED003F3D16 /* WorkSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,11 +517,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = biomarkers/biomarkers.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"biomarkers/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = biomarkers/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -442,11 +548,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = biomarkers/biomarkers.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"biomarkers/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = biomarkers/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
