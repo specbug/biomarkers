@@ -29,6 +29,8 @@
 		5913CFCC2B19FDED003F3D16 /* WorkSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFBC2B19FDED003F3D16 /* WorkSans-ExtraBoldItalic.ttf */; };
 		5913CFCF2B19FDF7003F3D16 /* WorkSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFCD2B19FDF7003F3D16 /* WorkSans-Medium.ttf */; };
 		5913CFD02B19FDF7003F3D16 /* WorkSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFCE2B19FDF7003F3D16 /* WorkSans-MediumItalic.ttf */; };
+		5913CFD42B1A3AB7003F3D16 /* Aleo-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFD32B1A3AB7003F3D16 /* Aleo-VariableFont_wght.ttf */; };
+		5913CFD62B1A3B29003F3D16 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFD52B1A3B29003F3D16 /* SF-Pro.ttf */; };
 		5946BABF2B17B33000803E95 /* biomarkersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5946BABE2B17B33000803E95 /* biomarkersApp.swift */; };
 		5946BAC12B17B33000803E95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5946BAC02B17B33000803E95 /* ContentView.swift */; };
 		5946BAC32B17B33200803E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5946BAC22B17B33200803E95 /* Assets.xcassets */; };
@@ -80,6 +82,8 @@
 		5913CFCE2B19FDF7003F3D16 /* WorkSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-MediumItalic.ttf"; sourceTree = "<group>"; };
 		5913CFD12B1A27B9003F3D16 /* WorkSans-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		5913CFD22B1A2B2E003F3D16 /* IowanOldStyle-Titling-07.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IowanOldStyle-Titling-07.ttf"; sourceTree = "<group>"; };
+		5913CFD32B1A3AB7003F3D16 /* Aleo-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		5913CFD52B1A3B29003F3D16 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		5946BABB2B17B33000803E95 /* biomarkers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = biomarkers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5946BABE2B17B33000803E95 /* biomarkersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomarkersApp.swift; sourceTree = "<group>"; };
 		5946BAC02B17B33000803E95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 		5913CFA12B19F2DC003F3D16 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5913CFD52B1A3B29003F3D16 /* SF-Pro.ttf */,
+				5913CFD32B1A3AB7003F3D16 /* Aleo-VariableFont_wght.ttf */,
 				5913CFD22B1A2B2E003F3D16 /* IowanOldStyle-Titling-07.ttf */,
 				5913CFD12B1A27B9003F3D16 /* WorkSans-VariableFont_wght.ttf */,
 				5913CFCD2B19FDF7003F3D16 /* WorkSans-Medium.ttf */,
@@ -327,9 +333,11 @@
 				5913CFBE2B19FDED003F3D16 /* WorkSans-ExtraBold.ttf in Resources */,
 				5913CFCF2B19FDF7003F3D16 /* WorkSans-Medium.ttf in Resources */,
 				5913CFCC2B19FDED003F3D16 /* WorkSans-ExtraBoldItalic.ttf in Resources */,
+				5913CFD62B1A3B29003F3D16 /* SF-Pro.ttf in Resources */,
 				5913CFA62B19F578003F3D16 /* JetBrainsMono-Italic.ttf in Resources */,
 				5913CFBF2B19FDED003F3D16 /* WorkSans-BlackItalic.ttf in Resources */,
 				5913CFCA2B19FDED003F3D16 /* WorkSans-Thin.ttf in Resources */,
+				5913CFD42B1A3AB7003F3D16 /* Aleo-VariableFont_wght.ttf in Resources */,
 				5913CFC82B19FDED003F3D16 /* WorkSans-Black.ttf in Resources */,
 				5913CFC32B19FDED003F3D16 /* WorkSans-Italic.ttf in Resources */,
 				5913CFA32B19F30C003F3D16 /* JetBrainsMono-Regular.ttf in Resources */,

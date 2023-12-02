@@ -4,6 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>SF-Pro.ttf</string>
+		<string>Aleo-VariableFont_wght.ttf</string>
 		<string>WorkSans-VariableFont_wght.ttf</string>
 		<string>IowanOldStyle-Titling-07.ttf</string>
 		<string>WorkSans-Italic.ttf</string>

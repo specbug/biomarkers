@@ -21,6 +21,29 @@ extension Color {
 
 
 struct ContentView: View {
+	
+	var body: some View {
+		VStack(spacing:0) {
+			ProfileHeader()
+			ActivityGrid()
+		}
+	}
+}
+
+struct ProfileHeader: View {
+	
+	var body: some View {
+		Image("the-purpose-of-technology")
+			.resizable()
+			.aspectRatio(contentMode: .fit)
+			.overlay(
+				RoundedRectangle(cornerRadius: 25)
+					.stroke(Color(hex: 0xe5e5e5), lineWidth: 1)
+			)
+	}
+}
+
+struct ActivityGrid: View {
 	let columns: [GridItem] = [
 			GridItem(.flexible(minimum: 80)),
 			GridItem(.flexible(minimum: 80))
@@ -48,7 +71,7 @@ struct ContentView: View {
 						.shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 0)
 				}
 			}
-			.padding([.leading, .trailing], 5)
+			.padding(EdgeInsets(top: 10, leading: 5, bottom: 0, trailing: 5))
 		}
 	}
 }
@@ -101,14 +124,14 @@ struct CardContent: View {
 	var body: some View {
 		HStack(alignment: .firstTextBaseline, spacing: 5) {
 			agg
-				.font(.custom("WorkSans-Light", size: 14))
+				.font(.custom("WorkSans-Regular", size: 14))
 				.fontDesign(.monospaced)
-				.foregroundColor(Color(red: 140/255, green: 140/255, blue: 140/255))
+				.foregroundColor(Color(hex: 0x8c8c8c))
 			value
 				.font(.custom("WorkSans-SemiBold", size: 26))
 			unit
-				.font(.custom("WorkSans-Light", size: 15))
-				.foregroundColor(Color(red: 140/255, green: 140/255, blue: 140/255))
+				.font(.custom("WorkSans-Regular", size: 15))
+				.foregroundColor(Color(hex: 0x8c8c8c))
 		}
 	}
 }
