@@ -25,10 +25,34 @@ struct ContentView: View {
 	var body: some View {
 		VStack(spacing:0) {
 			ProfileHeader()
+			SegmentView()
 			ActivityGrid()
 		}
 	}
 }
+
+
+struct SegmentView: View {
+	// TODO: control views with selected segment, customise picker style
+	@State private var selectedSegment = 0
+	let segments = ["Metabolic", "Clinical"]
+	
+	var body: some View {
+		VStack {
+			Picker("Marker Source", selection: $selectedSegment) {
+				ForEach(0..<segments.count) { index in
+					Text(segments[index])
+						.tag(index)
+				}
+			}
+			.pickerStyle(SegmentedPickerStyle())
+			.padding([.top, .horizontal], 10)
+			.cornerRadius(25)
+		}
+	}
+}
+
+
 
 struct ProfileHeader: View {
 	
