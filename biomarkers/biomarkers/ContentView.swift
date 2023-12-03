@@ -69,6 +69,7 @@ struct ProfileHeader: View {
 }
 
 struct ActivityGrid: View {
+	@State private var selectedCardIndex: Int? = nil
 	let columns: [GridItem] = [
 			GridItem(.flexible(minimum: 80)),
 			GridItem(.flexible(minimum: 80))
@@ -90,10 +91,16 @@ struct ActivityGrid: View {
 						unit: Text(activityUnits[index]),
 						favicon: Image(systemName: activityImages[index])
 					)
-						.background(Color.white)
+						.background(selectedCardIndex == index ? Color.black : Color.white)
 						.cornerRadius(25)
 						.padding([index & 1 == 1 ? .horizontal : .leading, .bottom], 5)
 						.shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 0)
+						.onTapGesture {
+							withAnimation {
+								selectedCardIndex = selectedCardIndex == index ? nil : index
+							}
+						}
+						.foregroundColor(selectedCardIndex == index ? .white : .black)
 				}
 			}
 			.padding(EdgeInsets(top: 10, leading: 5, bottom: 0, trailing: 5))
