@@ -63,6 +63,7 @@ struct ProfileHeader: View {
 			.overlay(
 				RoundedRectangle(cornerRadius: 25)
 					.stroke(Color(hex: 0xe5e5e5), lineWidth: 1)
+				, alignment: .bottom
 			)
 	}
 }
