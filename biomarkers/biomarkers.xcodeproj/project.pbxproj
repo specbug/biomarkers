@@ -35,27 +35,7 @@
 		5946BAC12B17B33000803E95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5946BAC02B17B33000803E95 /* ContentView.swift */; };
 		5946BAC32B17B33200803E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5946BAC22B17B33200803E95 /* Assets.xcassets */; };
 		5946BAC62B17B33200803E95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5946BAC52B17B33200803E95 /* Preview Assets.xcassets */; };
-		5946BAD02B17B33200803E95 /* biomarkersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5946BACF2B17B33200803E95 /* biomarkersTests.swift */; };
-		5946BADA2B17B33200803E95 /* biomarkersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5946BAD92B17B33200803E95 /* biomarkersUITests.swift */; };
-		5946BADC2B17B33200803E95 /* biomarkersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5946BADB2B17B33200803E95 /* biomarkersUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5946BACC2B17B33200803E95 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5946BAB32B17B33000803E95 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5946BABA2B17B33000803E95;
-			remoteInfo = biomarkers;
-		};
-		5946BAD62B17B33200803E95 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5946BAB32B17B33000803E95 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5946BABA2B17B33000803E95;
-			remoteInfo = biomarkers;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5913CFA22B19F30C003F3D16 /* JetBrainsMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Regular.ttf"; sourceTree = "<group>"; };
@@ -89,30 +69,11 @@
 		5946BAC02B17B33000803E95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5946BAC22B17B33200803E95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5946BAC52B17B33200803E95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5946BACB2B17B33200803E95 /* biomarkersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = biomarkersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5946BACF2B17B33200803E95 /* biomarkersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomarkersTests.swift; sourceTree = "<group>"; };
-		5946BAD52B17B33200803E95 /* biomarkersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = biomarkersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5946BAD92B17B33200803E95 /* biomarkersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomarkersUITests.swift; sourceTree = "<group>"; };
-		5946BADB2B17B33200803E95 /* biomarkersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomarkersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5946BAE82B17B3D300803E95 /* biomarkers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = biomarkers.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5946BAB82B17B33000803E95 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5946BAC82B17B33200803E95 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5946BAD22B17B33200803E95 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -159,8 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				5946BABD2B17B33000803E95 /* biomarkers */,
-				5946BACE2B17B33200803E95 /* biomarkersTests */,
-				5946BAD82B17B33200803E95 /* biomarkersUITests */,
 				5946BABC2B17B33000803E95 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -170,8 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				5946BABB2B17B33000803E95 /* biomarkers.app */,
-				5946BACB2B17B33200803E95 /* biomarkersTests.xctest */,
-				5946BAD52B17B33200803E95 /* biomarkersUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,23 +154,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		5946BACE2B17B33200803E95 /* biomarkersTests */ = {
-			isa = PBXGroup;
-			children = (
-				5946BACF2B17B33200803E95 /* biomarkersTests.swift */,
-			);
-			path = biomarkersTests;
-			sourceTree = "<group>";
-		};
-		5946BAD82B17B33200803E95 /* biomarkersUITests */ = {
-			isa = PBXGroup;
-			children = (
-				5946BAD92B17B33200803E95 /* biomarkersUITests.swift */,
-				5946BADB2B17B33200803E95 /* biomarkersUITestsLaunchTests.swift */,
-			);
-			path = biomarkersUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -234,42 +174,6 @@
 			productReference = 5946BABB2B17B33000803E95 /* biomarkers.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5946BACA2B17B33200803E95 /* biomarkersTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5946BAE22B17B33200803E95 /* Build configuration list for PBXNativeTarget "biomarkersTests" */;
-			buildPhases = (
-				5946BAC72B17B33200803E95 /* Sources */,
-				5946BAC82B17B33200803E95 /* Frameworks */,
-				5946BAC92B17B33200803E95 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5946BACD2B17B33200803E95 /* PBXTargetDependency */,
-			);
-			name = biomarkersTests;
-			productName = biomarkersTests;
-			productReference = 5946BACB2B17B33200803E95 /* biomarkersTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		5946BAD42B17B33200803E95 /* biomarkersUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5946BAE52B17B33200803E95 /* Build configuration list for PBXNativeTarget "biomarkersUITests" */;
-			buildPhases = (
-				5946BAD12B17B33200803E95 /* Sources */,
-				5946BAD22B17B33200803E95 /* Frameworks */,
-				5946BAD32B17B33200803E95 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5946BAD72B17B33200803E95 /* PBXTargetDependency */,
-			);
-			name = biomarkersUITests;
-			productName = biomarkersUITests;
-			productReference = 5946BAD52B17B33200803E95 /* biomarkersUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -282,14 +186,6 @@
 				TargetAttributes = {
 					5946BABA2B17B33000803E95 = {
 						CreatedOnToolsVersion = 14.2;
-					};
-					5946BACA2B17B33200803E95 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 5946BABA2B17B33000803E95;
-					};
-					5946BAD42B17B33200803E95 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 5946BABA2B17B33000803E95;
 					};
 				};
 			};
@@ -307,8 +203,6 @@
 			projectRoot = "";
 			targets = (
 				5946BABA2B17B33000803E95 /* biomarkers */,
-				5946BACA2B17B33200803E95 /* biomarkersTests */,
-				5946BAD42B17B33200803E95 /* biomarkersUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -347,20 +241,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5946BAC92B17B33200803E95 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5946BAD32B17B33200803E95 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -373,37 +253,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5946BAC72B17B33200803E95 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5946BAD02B17B33200803E95 /* biomarkersTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5946BAD12B17B33200803E95 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5946BADA2B17B33200803E95 /* biomarkersUITests.swift in Sources */,
-				5946BADC2B17B33200803E95 /* biomarkersUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5946BACD2B17B33200803E95 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5946BABA2B17B33000803E95 /* biomarkers */;
-			targetProxy = 5946BACC2B17B33200803E95 /* PBXContainerItemProxy */;
-		};
-		5946BAD72B17B33200803E95 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5946BABA2B17B33000803E95 /* biomarkers */;
-			targetProxy = 5946BAD62B17B33200803E95 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5946BADD2B17B33200803E95 /* Debug */ = {
@@ -529,7 +379,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"biomarkers/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9L78GJM58X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = biomarkers/Info.plist;
@@ -543,7 +393,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = in.sixeleven.biomarkers;
+				PRODUCT_BUNDLE_IDENTIFIER = com.buildingengines.BEIApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -560,7 +410,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"biomarkers/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9L78GJM58X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = biomarkers/Info.plist;
@@ -574,83 +424,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = in.sixeleven.biomarkers;
+				PRODUCT_BUNDLE_IDENTIFIER = com.buildingengines.BEIApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		5946BAE32B17B33200803E95 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = in.sixeleven.biomarkersTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/biomarkers.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/biomarkers";
-			};
-			name = Debug;
-		};
-		5946BAE42B17B33200803E95 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = in.sixeleven.biomarkersTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/biomarkers.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/biomarkers";
-			};
-			name = Release;
-		};
-		5946BAE62B17B33200803E95 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = in.sixeleven.biomarkersUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = biomarkers;
-			};
-			name = Debug;
-		};
-		5946BAE72B17B33200803E95 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = in.sixeleven.biomarkersUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = biomarkers;
 			};
 			name = Release;
 		};
@@ -671,24 +449,6 @@
 			buildConfigurations = (
 				5946BAE02B17B33200803E95 /* Debug */,
 				5946BAE12B17B33200803E95 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5946BAE22B17B33200803E95 /* Build configuration list for PBXNativeTarget "biomarkersTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5946BAE32B17B33200803E95 /* Debug */,
-				5946BAE42B17B33200803E95 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5946BAE52B17B33200803E95 /* Build configuration list for PBXNativeTarget "biomarkersUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5946BAE62B17B33200803E95 /* Debug */,
-				5946BAE72B17B33200803E95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

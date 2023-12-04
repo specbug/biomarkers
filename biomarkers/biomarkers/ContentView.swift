@@ -84,9 +84,13 @@ struct WeeklyMetric: Identifiable {
 
 struct ActualChart: View {
 	var data: [WeeklyMetric] = [
-		.init(date: "2023-01-10", value: 74),
-		.init(date: "2023-01-17", value: 99),
-		.init(date: "2023-01-25", value: 62)
+		.init(date: "2023-01-10", value: 174),
+		.init(date: "2023-01-17", value: 299),
+		.init(date: "2023-01-25", value: 0),
+		.init(date: "2023-02-10", value: 74),
+		.init(date: "2023-02-17", value: 100),
+		.init(date: "2023-02-25", value: 20),
+		.init(date: "2023-03-25", value: 50)
 	]
 
 	var body: some View {
@@ -95,8 +99,23 @@ struct ActualChart: View {
 				x: .value("Date", monthlyData.date),
 				y: .value("Value", monthlyData.value)
 			)
-			.foregroundStyle(.white)
+			.foregroundStyle(Color(hex: 0xff796c))
 		}
+		.frame(height: 150)
+		.gridColumnAlignment(.center)
+		.chartYAxis {
+			AxisMarks(position: .leading, values: .automatic(desiredCount: 4)) { value in
+				let yValue = value.as(Int.self)!
+				AxisGridLine(stroke: StrokeStyle(lineWidth: 1, dash: [8.0, 6.0]))
+					.foregroundStyle(Color(red: 120/255, green: 120/255, blue: 120/255, opacity: 0.8))
+				AxisValueLabel() {
+					Text("\(yValue)")
+						.foregroundStyle(Color(red: 120/255, green: 120/255, blue: 120/255, opacity: 0.8))
+				}
+			}
+		}
+		.chartXAxis(.hidden)
+		.padding()
 	}
 }
 
@@ -162,6 +181,7 @@ struct MarkerCard: View {
 				.padding(.top, 10)
 			if isSelected {
 				ActualChart()
+					.padding(.top, -15)
 			}
 		}
 	}
@@ -212,3 +232,4 @@ struct ContentView_Previews: PreviewProvider {
 			.background(Color(hex: 0xf7f9fb))
 	}
 }
+
