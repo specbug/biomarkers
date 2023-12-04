@@ -83,6 +83,9 @@ struct WeeklyMetric: Identifiable {
 }
 
 struct ActualChart: View {
+	@State private var selectedPoint: WeeklyMetric? = nil
+	@State private var tappedLocation: CGPoint?
+	
 	var data: [WeeklyMetric] = [
 		.init(date: "2023-01-10", value: 174),
 		.init(date: "2023-01-17", value: 299),
@@ -92,7 +95,27 @@ struct ActualChart: View {
 		.init(date: "2023-02-25", value: 20),
 		.init(date: "2023-03-25", value: 50)
 	]
-
+	
+	private func findElement(location: CGPoint, proxy: ChartProxy, geometry: GeometryProxy) -> WeeklyMetric? {
+			let relativeXPosition = location.x - geometry[proxy.plotAreaFrame].origin.x
+			if let date = proxy.value(atX: relativeXPosition) as Date? {
+				// Find the closest date element.
+				var minDistance: TimeInterval = .infinity
+				var index: Int? = nil
+				for salesDataIndex in data.indices {
+					let nthSalesDataDistance = data[salesDataIndex].date.distance(to: date)
+					if abs(nthSalesDataDistance) < minDistance {
+						minDistance = abs(nthSalesDataDistance)
+						index = salesDataIndex
+					}
+				}
+				if let index {
+					return data[index]
+				}
+			}
+			return nil
+		}
+	
 	var body: some View {
 		Chart(data) { monthlyData in
 			LineMark(
@@ -100,6 +123,13 @@ struct ActualChart: View {
 				y: .value("Value", monthlyData.value)
 			)
 			.foregroundStyle(Color(hex: 0xff796c))
+			.lineStyle(.init(lineWidth: 1.5))
+			.symbol() {
+				Circle()
+					.strokeBorder(Color(hex: 0xff796c), lineWidth: 2)
+					.background(Circle().foregroundColor(Color(.black)))
+					.frame(width: 13)
+			}
 		}
 		.frame(height: 150)
 		.gridColumnAlignment(.center)
@@ -115,9 +145,66 @@ struct ActualChart: View {
 			}
 		}
 		.chartXAxis(.hidden)
+		.chartOverlay { proxy in
+			GeometryReader { geo in
+				Rectangle().fill(.clear).contentShape(Rectangle())
+					.gesture(
+						SpatialTapGesture()
+							.onEnded { value in
+								let element = findElement(location: value.location, proxy: proxy, geometry: geo)
+								if selectedPoint?.date == element?.date {
+									// If tapping the same element, clear the selection.
+									selectedPoint = nil
+								} else {
+									selectedPoint = element
+								}
+							}
+							.exclusively(
+								before: DragGesture()
+									.onChanged { value in
+										selectedPoint = findElement(location: value.location, proxy: proxy, geometry: geo)
+									}
+							)
+					)
+			}
+		}
+		.chartBackground { proxy in
+					ZStack(alignment: .topLeading) {
+						GeometryReader { geo in
+							if true,
+							   let selectedPoint {
+								let dateInterval = Calendar.current.dateInterval(of: .day, for: selectedPoint.date)!
+								let startPositionX1 = proxy.position(forX: dateInterval.start) ?? 0
+
+								let lineX = startPositionX1 + geo[proxy.plotAreaFrame].origin.x
+								let lineHeight = geo[proxy.plotAreaFrame].maxY
+								let boxWidth: CGFloat = 50
+								let boxOffset = max(0, min(geo.size.width - boxWidth, lineX - boxWidth / 2))
+
+								Rectangle()
+									.fill(Color(hex: 0xff796c, alpha: 0.25))
+									.frame(width: 0.75, height: lineHeight)
+									.position(x: lineX, y: lineHeight / 2)
+
+								VStack(alignment: .center) {
+									Text("\(selectedPoint.date, format: .dateTime.month().day())")
+										.font(.custom("WorkSans-Regular", size: 10))
+//										.foregroundStyle(Color(hex: 0xff796c))
+										.foregroundStyle(Color(hex: 0x4c9ae8))
+									Text("\(selectedPoint.value, format: .number)")
+										.font(.custom("JetBrainsMono-Regular", size: 15))
+										.foregroundColor(Color(hex: 0x8c8c8c))
+									
+								}
+								.offset(x: boxOffset, y: -lineHeight/3.5)
+							}
+						}
+					}
+				}
 		.padding()
 	}
 }
+
 
 
 struct ActivityGrid: View {
@@ -181,7 +268,7 @@ struct MarkerCard: View {
 				.padding(.top, 10)
 			if isSelected {
 				ActualChart()
-					.padding(.top, -15)
+//					.padding(.top, -15)
 			}
 		}
 	}
