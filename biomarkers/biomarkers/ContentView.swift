@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 extension Color {
 	init(hex: UInt, alpha: Double = 1) {
@@ -68,6 +69,38 @@ struct ProfileHeader: View {
 	}
 }
 
+struct WeeklyMetric: Identifiable {
+	var id = UUID() // This property is required by the Identifiable protocol
+	var date: Date
+	var value: Double
+
+	init(date: String, value: Double) {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd"
+		self.date = dateFormatter.date(from: date)!
+		self.value = value
+	}
+}
+
+struct ActualChart: View {
+	var data: [WeeklyMetric] = [
+		.init(date: "2023-01-10", value: 74),
+		.init(date: "2023-01-17", value: 99),
+		.init(date: "2023-01-25", value: 62)
+	]
+
+	var body: some View {
+		Chart(data) { monthlyData in
+			LineMark(
+				x: .value("Date", monthlyData.date),
+				y: .value("Value", monthlyData.value)
+			)
+			.foregroundStyle(.white)
+		}
+	}
+}
+
+
 struct ActivityGrid: View {
 	@State private var selectedCardIndex: Int? = nil
 	let columns: [GridItem] = [
@@ -89,7 +122,8 @@ struct ActivityGrid: View {
 						agg: Text(activityAggs[index]),
 						value: Text(String(activityValues[index])),
 						unit: Text(activityUnits[index]),
-						favicon: Image(systemName: activityImages[index])
+						favicon: Image(systemName: activityImages[index]),
+						isSelected: selectedCardIndex == index
 					)
 						.background(selectedCardIndex == index ? Color.black : Color.white)
 						.cornerRadius(25)
@@ -114,6 +148,7 @@ struct MarkerCard: View {
 	var value: Text
 	var unit: Text
 	var favicon: Image
+	var isSelected: Bool
 	
 	var body: some View {
 		VStack(spacing: 20) {
@@ -125,6 +160,9 @@ struct MarkerCard: View {
 				.frame(maxWidth: .infinity, alignment: .center)
 				.padding(.bottom, 30)
 				.padding(.top, 10)
+			if isSelected {
+				ActualChart()
+			}
 		}
 	}
 }
