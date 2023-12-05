@@ -82,19 +82,28 @@ struct WeeklyMetric: Identifiable {
 	}
 }
 
+// Function to generate dummy records
+func generateDummyRecords() -> [WeeklyMetric] {
+	var dummyData: [WeeklyMetric] = []
+	let dateFormatter = DateFormatter()
+	dateFormatter.dateFormat = "yyyy-MM-dd"
+
+	for i in 1...7 {
+		let randomValue = Int.random(in: 1...1000)
+		let randomDate = Date().addingTimeInterval(TimeInterval(86400 * i)) // Adding 1 day interval
+		let formattedDate = dateFormatter.string(from: randomDate)
+		let dummyRecord = WeeklyMetric(date: formattedDate, value: Double(randomValue))
+		dummyData.append(dummyRecord)
+	}
+
+	return dummyData
+}
+
 struct ActualChart: View {
 	@State private var selectedPoint: WeeklyMetric? = nil
 	@State private var tappedLocation: CGPoint?
 	
-	var data: [WeeklyMetric] = [
-		.init(date: "2023-01-10", value: 174),
-		.init(date: "2023-01-17", value: 299),
-		.init(date: "2023-01-25", value: 0),
-		.init(date: "2023-02-10", value: 74),
-		.init(date: "2023-02-17", value: 100),
-		.init(date: "2023-02-25", value: 20),
-		.init(date: "2023-03-25", value: 50)
-	]
+	var data: [WeeklyMetric] = generateDummyRecords()
 	
 	private func findElement(location: CGPoint, proxy: ChartProxy, geometry: GeometryProxy) -> WeeklyMetric? {
 			let relativeXPosition = location.x - geometry[proxy.plotAreaFrame].origin.x
@@ -268,7 +277,6 @@ struct MarkerCard: View {
 				.padding(.top, 10)
 			if isSelected {
 				ActualChart()
-//					.padding(.top, -15)
 			}
 		}
 	}
