@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5913CFA32B19F30C003F3D16 /* JetBrainsMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFA22B19F30C003F3D16 /* JetBrainsMono-Regular.ttf */; };
+		5913CFA62B19F578003F3D16 /* JetBrainsMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFA42B19F578003F3D16 /* JetBrainsMono-Italic.ttf */; };
+		5913CFA72B19F578003F3D16 /* JetBrainsMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFA52B19F578003F3D16 /* JetBrainsMono-Bold.ttf */; };
+		5913CFA92B19F588003F3D16 /* Iowan Old Style.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFA82B19F588003F3D16 /* Iowan Old Style.ttc */; };
+		5913CFBD2B19FDED003F3D16 /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFAD2B19FDEC003F3D16 /* WorkSans-Regular.ttf */; };
+		5913CFBE2B19FDED003F3D16 /* WorkSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFAE2B19FDEC003F3D16 /* WorkSans-ExtraBold.ttf */; };
+		5913CFBF2B19FDED003F3D16 /* WorkSans-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFAF2B19FDED003F3D16 /* WorkSans-BlackItalic.ttf */; };
+		5913CFC02B19FDED003F3D16 /* WorkSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB02B19FDED003F3D16 /* WorkSans-ExtraLightItalic.ttf */; };
+		5913CFC12B19FDED003F3D16 /* WorkSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB12B19FDED003F3D16 /* WorkSans-ExtraLight.ttf */; };
+		5913CFC22B19FDED003F3D16 /* WorkSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB22B19FDED003F3D16 /* WorkSans-SemiBoldItalic.ttf */; };
+		5913CFC32B19FDED003F3D16 /* WorkSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB32B19FDED003F3D16 /* WorkSans-Italic.ttf */; };
+		5913CFC42B19FDED003F3D16 /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB42B19FDED003F3D16 /* WorkSans-Bold.ttf */; };
+		5913CFC52B19FDED003F3D16 /* WorkSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB52B19FDED003F3D16 /* WorkSans-BoldItalic.ttf */; };
+		5913CFC62B19FDED003F3D16 /* WorkSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB62B19FDED003F3D16 /* WorkSans-SemiBold.ttf */; };
+		5913CFC72B19FDED003F3D16 /* WorkSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB72B19FDED003F3D16 /* WorkSans-LightItalic.ttf */; };
+		5913CFC82B19FDED003F3D16 /* WorkSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB82B19FDED003F3D16 /* WorkSans-Black.ttf */; };
+		5913CFC92B19FDED003F3D16 /* WorkSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFB92B19FDED003F3D16 /* WorkSans-Light.ttf */; };
+		5913CFCA2B19FDED003F3D16 /* WorkSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFBA2B19FDED003F3D16 /* WorkSans-Thin.ttf */; };
+		5913CFCB2B19FDED003F3D16 /* WorkSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFBB2B19FDED003F3D16 /* WorkSans-ThinItalic.ttf */; };
+		5913CFCC2B19FDED003F3D16 /* WorkSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFBC2B19FDED003F3D16 /* WorkSans-ExtraBoldItalic.ttf */; };
+		5913CFCF2B19FDF7003F3D16 /* WorkSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFCD2B19FDF7003F3D16 /* WorkSans-Medium.ttf */; };
+		5913CFD02B19FDF7003F3D16 /* WorkSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFCE2B19FDF7003F3D16 /* WorkSans-MediumItalic.ttf */; };
+		5913CFD42B1A3AB7003F3D16 /* Aleo-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFD32B1A3AB7003F3D16 /* Aleo-VariableFont_wght.ttf */; };
+		5913CFD62B1A3B29003F3D16 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5913CFD52B1A3B29003F3D16 /* SF-Pro.ttf */; };
+		5946BABF2B17B33000803E95 /* biomarkersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5946BABE2B17B33000803E95 /* biomarkersApp.swift */; };
+		5946BAC12B17B33000803E95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5946BAC02B17B33000803E95 /* ContentView.swift */; };
+		5946BAC32B17B33200803E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5946BAC22B17B33200803E95 /* Assets.xcassets */; };
+		5946BAC62B17B33200803E95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5946BAC52B17B33200803E95 /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5913CFA22B19F30C003F3D16 /* JetBrainsMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Regular.ttf"; sourceTree = "<group>"; };
+		5913CFA42B19F578003F3D16 /* JetBrainsMono-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Italic.ttf"; sourceTree = "<group>"; };
+		5913CFA52B19F578003F3D16 /* JetBrainsMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Bold.ttf"; sourceTree = "<group>"; };
+		5913CFA82B19F588003F3D16 /* Iowan Old Style.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Iowan Old Style.ttc"; sourceTree = "<group>"; };
+		5913CFAD2B19FDEC003F3D16 /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.ttf"; sourceTree = "<group>"; };
+		5913CFAE2B19FDEC003F3D16 /* WorkSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		5913CFAF2B19FDED003F3D16 /* WorkSans-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-BlackItalic.ttf"; sourceTree = "<group>"; };
+		5913CFB02B19FDED003F3D16 /* WorkSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		5913CFB12B19FDED003F3D16 /* WorkSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		5913CFB22B19FDED003F3D16 /* WorkSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		5913CFB32B19FDED003F3D16 /* WorkSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Italic.ttf"; sourceTree = "<group>"; };
+		5913CFB42B19FDED003F3D16 /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.ttf"; sourceTree = "<group>"; };
+		5913CFB52B19FDED003F3D16 /* WorkSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		5913CFB62B19FDED003F3D16 /* WorkSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		5913CFB72B19FDED003F3D16 /* WorkSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		5913CFB82B19FDED003F3D16 /* WorkSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.ttf"; sourceTree = "<group>"; };
+		5913CFB92B19FDED003F3D16 /* WorkSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Light.ttf"; sourceTree = "<group>"; };
+		5913CFBA2B19FDED003F3D16 /* WorkSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Thin.ttf"; sourceTree = "<group>"; };
+		5913CFBB2B19FDED003F3D16 /* WorkSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ThinItalic.ttf"; sourceTree = "<group>"; };
+		5913CFBC2B19FDED003F3D16 /* WorkSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		5913CFCD2B19FDF7003F3D16 /* WorkSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Medium.ttf"; sourceTree = "<group>"; };
+		5913CFCE2B19FDF7003F3D16 /* WorkSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		5913CFD12B1A27B9003F3D16 /* WorkSans-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		5913CFD22B1A2B2E003F3D16 /* IowanOldStyle-Titling-07.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IowanOldStyle-Titling-07.ttf"; sourceTree = "<group>"; };
+		5913CFD32B1A3AB7003F3D16 /* Aleo-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		5913CFD52B1A3B29003F3D16 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		5946BABB2B17B33000803E95 /* biomarkers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = biomarkers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5946BABE2B17B33000803E95 /* biomarkersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = biomarkersApp.swift; sourceTree = "<group>"; };
+		5946BAC02B17B33000803E95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5946BAC22B17B33200803E95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5946BAC52B17B33200803E95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5946BAE82B17B3D300803E95 /* biomarkers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = biomarkers.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5946BAB82B17B33000803E95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5913CFA12B19F2DC003F3D16 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5913CFD52B1A3B29003F3D16 /* SF-Pro.ttf */,
+				5913CFD32B1A3AB7003F3D16 /* Aleo-VariableFont_wght.ttf */,
+				5913CFD22B1A2B2E003F3D16 /* IowanOldStyle-Titling-07.ttf */,
+				5913CFD12B1A27B9003F3D16 /* WorkSans-VariableFont_wght.ttf */,
+				5913CFCD2B19FDF7003F3D16 /* WorkSans-Medium.ttf */,
+				5913CFCE2B19FDF7003F3D16 /* WorkSans-MediumItalic.ttf */,
+				5913CFB82B19FDED003F3D16 /* WorkSans-Black.ttf */,
+				5913CFAF2B19FDED003F3D16 /* WorkSans-BlackItalic.ttf */,
+				5913CFB42B19FDED003F3D16 /* WorkSans-Bold.ttf */,
+				5913CFB52B19FDED003F3D16 /* WorkSans-BoldItalic.ttf */,
+				5913CFAE2B19FDEC003F3D16 /* WorkSans-ExtraBold.ttf */,
+				5913CFBC2B19FDED003F3D16 /* WorkSans-ExtraBoldItalic.ttf */,
+				5913CFB12B19FDED003F3D16 /* WorkSans-ExtraLight.ttf */,
+				5913CFB02B19FDED003F3D16 /* WorkSans-ExtraLightItalic.ttf */,
+				5913CFB32B19FDED003F3D16 /* WorkSans-Italic.ttf */,
+				5913CFB92B19FDED003F3D16 /* WorkSans-Light.ttf */,
+				5913CFB72B19FDED003F3D16 /* WorkSans-LightItalic.ttf */,
+				5913CFAD2B19FDEC003F3D16 /* WorkSans-Regular.ttf */,
+				5913CFB62B19FDED003F3D16 /* WorkSans-SemiBold.ttf */,
+				5913CFB22B19FDED003F3D16 /* WorkSans-SemiBoldItalic.ttf */,
+				5913CFBA2B19FDED003F3D16 /* WorkSans-Thin.ttf */,
+				5913CFBB2B19FDED003F3D16 /* WorkSans-ThinItalic.ttf */,
+				5913CFA82B19F588003F3D16 /* Iowan Old Style.ttc */,
+				5913CFA52B19F578003F3D16 /* JetBrainsMono-Bold.ttf */,
+				5913CFA42B19F578003F3D16 /* JetBrainsMono-Italic.ttf */,
+				5913CFA22B19F30C003F3D16 /* JetBrainsMono-Regular.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		5946BAB22B17B33000803E95 = {
+			isa = PBXGroup;
+			children = (
+				5946BABD2B17B33000803E95 /* biomarkers */,
+				5946BABC2B17B33000803E95 /* Products */,
+			);
+			sourceTree = "<group>";
+			usesTabs = 1;
+		};
+		5946BABC2B17B33000803E95 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5946BABB2B17B33000803E95 /* biomarkers.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5946BABD2B17B33000803E95 /* biomarkers */ = {
+			isa = PBXGroup;
+			children = (
+				5913CFA12B19F2DC003F3D16 /* fonts */,
+				5946BAE82B17B3D300803E95 /* biomarkers.entitlements */,
+				5946BABE2B17B33000803E95 /* biomarkersApp.swift */,
+				5946BAC02B17B33000803E95 /* ContentView.swift */,
+				5946BAC22B17B33200803E95 /* Assets.xcassets */,
+				5946BAC42B17B33200803E95 /* Preview Content */,
+			);
+			path = biomarkers;
+			sourceTree = "<group>";
+		};
+		5946BAC42B17B33200803E95 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5946BAC52B17B33200803E95 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5946BABA2B17B33000803E95 /* biomarkers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5946BADF2B17B33200803E95 /* Build configuration list for PBXNativeTarget "biomarkers" */;
+			buildPhases = (
+				5946BAB72B17B33000803E95 /* Sources */,
+				5946BAB82B17B33000803E95 /* Frameworks */,
+				5946BAB92B17B33000803E95 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = biomarkers;
+			productName = biomarkers;
+			productReference = 5946BABB2B17B33000803E95 /* biomarkers.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5946BAB32B17B33000803E95 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					5946BABA2B17B33000803E95 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 5946BAB62B17B33000803E95 /* Build configuration list for PBXProject "biomarkers" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5946BAB22B17B33000803E95;
+			productRefGroup = 5946BABC2B17B33000803E95 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5946BABA2B17B33000803E95 /* biomarkers */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5946BAB92B17B33000803E95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5946BAC62B17B33200803E95 /* Preview Assets.xcassets in Resources */,
+				5913CFD02B19FDF7003F3D16 /* WorkSans-MediumItalic.ttf in Resources */,
+				5913CFC22B19FDED003F3D16 /* WorkSans-SemiBoldItalic.ttf in Resources */,
+				5913CFA72B19F578003F3D16 /* JetBrainsMono-Bold.ttf in Resources */,
+				5913CFA92B19F588003F3D16 /* Iowan Old Style.ttc in Resources */,
+				5913CFC72B19FDED003F3D16 /* WorkSans-LightItalic.ttf in Resources */,
+				5946BAC32B17B33200803E95 /* Assets.xcassets in Resources */,
+				5913CFC62B19FDED003F3D16 /* WorkSans-SemiBold.ttf in Resources */,
+				5913CFC92B19FDED003F3D16 /* WorkSans-Light.ttf in Resources */,
+				5913CFCB2B19FDED003F3D16 /* WorkSans-ThinItalic.ttf in Resources */,
+				5913CFC02B19FDED003F3D16 /* WorkSans-ExtraLightItalic.ttf in Resources */,
+				5913CFC12B19FDED003F3D16 /* WorkSans-ExtraLight.ttf in Resources */,
+				5913CFBE2B19FDED003F3D16 /* WorkSans-ExtraBold.ttf in Resources */,
+				5913CFCF2B19FDF7003F3D16 /* WorkSans-Medium.ttf in Resources */,
+				5913CFCC2B19FDED003F3D16 /* WorkSans-ExtraBoldItalic.ttf in Resources */,
+				5913CFD62B1A3B29003F3D16 /* SF-Pro.ttf in Resources */,
+				5913CFA62B19F578003F3D16 /* JetBrainsMono-Italic.ttf in Resources */,
+				5913CFBF2B19FDED003F3D16 /* WorkSans-BlackItalic.ttf in Resources */,
+				5913CFCA2B19FDED003F3D16 /* WorkSans-Thin.ttf in Resources */,
+				5913CFD42B1A3AB7003F3D16 /* Aleo-VariableFont_wght.ttf in Resources */,
+				5913CFC82B19FDED003F3D16 /* WorkSans-Black.ttf in Resources */,
+				5913CFC32B19FDED003F3D16 /* WorkSans-Italic.ttf in Resources */,
+				5913CFA32B19F30C003F3D16 /* JetBrainsMono-Regular.ttf in Resources */,
+				5913CFBD2B19FDED003F3D16 /* WorkSans-Regular.ttf in Resources */,
+				5913CFC52B19FDED003F3D16 /* WorkSans-BoldItalic.ttf in Resources */,
+				5913CFC42B19FDED003F3D16 /* WorkSans-Bold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5946BAB72B17B33000803E95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5946BAC12B17B33000803E95 /* ContentView.swift in Sources */,
+				5946BABF2B17B33000803E95 /* biomarkersApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5946BADD2B17B33200803E95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5946BADE2B17B33200803E95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5946BAE02B17B33200803E95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = biomarkers/biomarkers.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"biomarkers/Preview Content\"";
+				DEVELOPMENT_TEAM = 9L78GJM58X;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = biomarkers/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.buildingengines.BEIApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5946BAE12B17B33200803E95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = biomarkers/biomarkers.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"biomarkers/Preview Content\"";
+				DEVELOPMENT_TEAM = 9L78GJM58X;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = biomarkers/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.buildingengines.BEIApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5946BAB62B17B33000803E95 /* Build configuration list for PBXProject "biomarkers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5946BADD2B17B33200803E95 /* Debug */,
+				5946BADE2B17B33200803E95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5946BADF2B17B33200803E95 /* Build configuration list for PBXNativeTarget "biomarkers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5946BAE02B17B33200803E95 /* Debug */,
+				5946BAE12B17B33200803E95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5946BAB32B17B33000803E95 /* Project object */;
+}
