@@ -26,6 +26,8 @@ struct biomarkersApp: App {
 
 	func createLastWeekPredicate(from endDate: Date = Date()) -> NSPredicate {
 		let startDate = getLastWeekStartDate(from: endDate)
+		print("startDate", startDate)
+		print("endDate", endDate)
 		return HKQuery.predicateForSamples(withStart: startDate, end: endDate)
 	}
 	
@@ -39,6 +41,7 @@ struct biomarkersApp: App {
 		anchorComponents.hour = 3
 		
 		let anchorDate = calendar.date(from: anchorComponents)!
+		print("anchorDate", anchorDate)
 		
 		return anchorDate
 	}
@@ -51,11 +54,13 @@ struct biomarkersApp: App {
 			healthStore = HKHealthStore()
 		}
 		let allTypes = Set([HKObjectType.workoutType(),
-							HKQuantityType.quantityType(forIdentifier: .stepCount)!,
+							HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+							HKQuantityType.quantityType(forIdentifier: .vo2Max)!,
+							HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
+							HKQuantityType.quantityType(forIdentifier: .restingHeartRate)!,
 							HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
-							HKObjectType.quantityType(forIdentifier: .distanceCycling)!,
 							HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
-							HKObjectType.quantityType(forIdentifier: .heartRate)!])
+							HKObjectType.quantityType(forIdentifier: .stepCount)!])
 		DispatchQueue.main.async {
 			healthStore?.requestAuthorization(toShare: nil, read: allTypes) { (success, error) in
 				if !success {
@@ -67,15 +72,23 @@ struct biomarkersApp: App {
 					let initialResultsHandler: (HKStatisticsCollection) -> Void = { (statisticsCollection) in
 						var values: [Double] = []
 						statisticsCollection.enumerateStatistics(from: getLastWeekStartDate(), to: Date()) { (statistics, stop) in
+//							print("stats", statistics)
 							let statisticsQuantity = statistics.averageQuantity()
-							let value = statisticsQuantity?.doubleValue(for: .meter())
+//							print("stats qnt", statisticsQuantity)
+//							var value = statisticsQuantity?.doubleValue(for: .count())	// steps
+//							var value = statisticsQuantity?.doubleValue(for: HKUnit(from: "mL/min*kg"))	// vo2max
+//							var value = statisticsQuantity?.doubleValue(for: HKUnit(from: "count/min"))	// hr, rhr
+							var value = statisticsQuantity?.doubleValue(for: HKUnit(from: "ms"))	// hrv
+							if (value == nil) {
+								value = 0.0;
+							}
 							values.append(value!)
 						}
 						print("hi")
 						print(values)
 					}
 					print("2")
-					let query = HKStatisticsCollectionQuery(quantityType: HKObjectType.quantityType(forIdentifier: .heartRate)!,
+					let query = HKStatisticsCollectionQuery(quantityType: HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
 															quantitySamplePredicate: createLastWeekPredicate(),
 															options: .discreteAverage,
 															anchorDate: createAnchorDate(),
