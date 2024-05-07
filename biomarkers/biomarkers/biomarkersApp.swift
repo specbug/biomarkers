@@ -151,14 +151,17 @@ class HealthKitManager {
 		let now = Date()
 		let calendar = Calendar(identifier: .gregorian)
 		let timezone = TimeZone(identifier: "Asia/Kolkata") ?? TimeZone.current
-		var components = calendar.dateComponents(in: timezone, from: now)
-		components.weekday = 2 // Monday
+		var components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: now)
+
+		// Set the specific start of the week details
+		components.weekday = 2  // Set weekday to Monday (2)
 		components.hour = 0
 		components.minute = 0
 		components.second = 0
+		components.timeZone = timezone  // Set timezone
 
-		// Calculate the start of this week, adjusting for the calendar's weekday start
-		guard let startOfWeek = calendar.nextDate(after: now, matching: components, matchingPolicy: .nextTime, repeatedTimePolicy: .first, direction: .backward) else {
+		// Calculate the start of this week, explicitly targeting the start of the day on the 'weekOfYear'
+		guard let startOfWeek = calendar.date(from: components) else {
 			fatalError("Failed to calculate the start of the week.")
 		}
 		
