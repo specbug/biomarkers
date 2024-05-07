@@ -230,38 +230,44 @@ struct ActivityGrid: View {
 //	let activityAggs = ["μ", "μ", "μ", "μ", "Σ", "μ"]
 //	let activityImages = ["bed.double.circle", "figure.walk.circle", "heart.circle", "arrow.clockwise.heart", "flame.circle", "timer.circle"]
 	
-//	let activityTypes = Array.init(repeating: "HR", count: 6)
-//	let activityValues = [healthManager.heartRateData.last]
-//	let activityUnits = Array.init(repeating: "BPM", count: 6)
-//	let activityAggs = Array.init(repeating: "μ", count: 6)
-//	let activityImages = Array.init(repeating: "heart.circle", count: 6)
 	
 	var body: some View {
+		let activityDetails = getActivityDetails()
 		ScrollView {
 			LazyVGrid(columns: columns, spacing: 10) {
-				ForEach(Array(zip(healthManager.heartRateData.indices, healthManager.heartRateData)), id: \.0) { index, hrValue in
-					MarkerCard(
-							marker: Text("HR"),
-							agg: Text("μ"),
-							value: Text(String(format: "%.1f", hrValue)),
-							unit: Text("BPM"),
-							favicon: Image(systemName: "heart.circle"),
-							isSelected: false
+				ForEach(activityDetails.indices, id: \.self) { index in
+					let detail = activityDetails[index]
+					if let lastValue = detail.data.last {
+						MarkerCard(
+							marker: Text(detail.type),
+							agg: Text(detail.agg),
+							value: Text(String(format: "%.1f", lastValue)),
+							unit: Text(detail.unit),
+							favicon: Image(systemName: detail.icon),
+							isSelected: selectedCardIndex == index
 						)
-						.background(selectedCardIndex == index ? Color.black : Color.white)
-						.cornerRadius(25)
-						.padding([index & 1 == 1 ? .horizontal : .leading, .bottom], 5)
-						.shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 0)
-						.onTapGesture {
-							withAnimation {
-								selectedCardIndex = selectedCardIndex == index ? nil : index
+							.background(selectedCardIndex == index ? Color.black : Color.white)
+							.cornerRadius(25)
+							.padding([index & 1 == 1 ? .horizontal : .leading, .bottom], 5)
+							.shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 0)
+							.onTapGesture {
+								withAnimation {
+									selectedCardIndex = selectedCardIndex == index ? nil : index
+								}
 							}
-						}
-						.foregroundColor(selectedCardIndex == index ? .white : .black)
+							.foregroundColor(selectedCardIndex == index ? .white : .black)
+					}
 				}
 			}
 			.padding(EdgeInsets(top: 10, leading: 5, bottom: 0, trailing: 5))
 		}
+	}
+	
+	func getActivityDetails() -> [(type: String, unit: String, agg: String, icon: String, data: [Double])] {
+		[
+			("HR", "BPM", "μ", "heart.circle", healthManager.heartRateData),
+//			("VO2max", "ml/kg/min", "μ", "timer.circle", healthManager.vo2MaxData)
+		]
 	}
 }
 
