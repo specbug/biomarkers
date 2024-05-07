@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 import HealthKit
 import Foundation
 
@@ -29,29 +30,76 @@ struct BiomarkersApp: App {
 	}
 }
 
-class HealthKitManager {
+class HealthKitManager: NSObject, ObservableObject {
 	static let shared = HealthKitManager()
 	private var healthStore: HKHealthStore?
+	private let heathDataTypes = Set([
+		HKObjectType.workoutType(),
+		HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+		HKQuantityType.quantityType(forIdentifier: .vo2Max)!,
+		HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
+		HKQuantityType.quantityType(forIdentifier: .restingHeartRate)!,
+		HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+		HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+		HKObjectType.quantityType(forIdentifier: .stepCount)!
+	])
+	private let queryDetails: [HKQuantityTypeIdentifier: QueryDetail] = [
+		.heartRate: QueryDetail(
+			   option: .discreteAverage,
+			   method: { stats in
+				   stats.averageQuantity()?.doubleValue(for: HKUnit(from: "count/min"))
+			   }
+		   ),
+		   .vo2Max: QueryDetail(
+			   option: .discreteAverage,
+			   method: { stats in
+				   stats.averageQuantity()?.doubleValue(for: HKUnit(from: "ml/kg/min"))
+			   }
+		   ),
+		   .heartRateVariabilitySDNN: QueryDetail(
+			   option: .discreteAverage,
+			   method: { stats in
+				   stats.averageQuantity()?.doubleValue(for: HKUnit(from: "ms"))
+			   }
+		   ),
+		   .restingHeartRate: QueryDetail(
+			   option: .discreteAverage,
+			   method: { stats in
+				   stats.averageQuantity()?.doubleValue(for: HKUnit(from: "count/min"))
+			   }
+		   ),
+		   .activeEnergyBurned: QueryDetail(
+			   option: .cumulativeSum,
+			   method: { stats in
+				   stats.sumQuantity()?.doubleValue(for: HKUnit.kilocalorie())
+			   }
+		   ),
+		   .distanceWalkingRunning: QueryDetail(
+			   option: .cumulativeSum,
+			   method: { stats in
+				   stats.sumQuantity()?.doubleValue(for: HKUnit.meter())
+			   }
+		   ),
+		   .stepCount: QueryDetail(
+			   option: .cumulativeSum,
+			   method: { stats in
+				   stats.sumQuantity()?.doubleValue(for: HKUnit.count())
+			   }
+		   )
+	   ]
 	
-	init() {
+	@Published var heartRateData: [Double] = []
+	
+	override init() {
 		if HKHealthStore.isHealthDataAvailable() {
 			healthStore = HKHealthStore()
 		}
 	}
 	
 	func requestAuthorization() {
-		let heathDataTypes = Set([
-			HKObjectType.workoutType(),
-			HKQuantityType.quantityType(forIdentifier: .heartRate)!,
-			HKQuantityType.quantityType(forIdentifier: .vo2Max)!,
-			HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
-			HKQuantityType.quantityType(forIdentifier: .restingHeartRate)!,
-			HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
-			HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
-			HKObjectType.quantityType(forIdentifier: .stepCount)!
-		])
+		
 		DispatchQueue.main.async {
-			self.healthStore?.requestAuthorization(toShare: nil, read: heathDataTypes) { success, error in
+			self.healthStore?.requestAuthorization(toShare: nil, read: self.heathDataTypes) { success, error in
 				if !success {
 					print("Authorization failed: \(error?.localizedDescription ?? "Undefined error")")
 				}
@@ -63,52 +111,8 @@ class HealthKitManager {
 	}
 	
 	private func executeQueriesForAllDataTypes() {
-		let queryDetails: [HKQuantityTypeIdentifier: QueryDetail] = [
-			.heartRate: QueryDetail(
-				option: .discreteAverage,
-				method: { stats in
-					stats.averageQuantity()?.doubleValue(for: HKUnit(from: "count/min"))
-				}
-			),
-			.vo2Max: QueryDetail(
-				option: .discreteAverage,
-				method: { stats in
-					stats.averageQuantity()?.doubleValue(for: HKUnit(from: "ml/kg/min"))
-				}
-			),
-			.heartRateVariabilitySDNN: QueryDetail(
-				option: .discreteAverage,
-				method: { stats in
-					stats.averageQuantity()?.doubleValue(for: HKUnit(from: "ms"))
-				}
-			),
-			.restingHeartRate: QueryDetail(
-				option: .discreteAverage,
-				method: { stats in
-					stats.averageQuantity()?.doubleValue(for: HKUnit(from: "count/min"))
-				}
-			),
-			.activeEnergyBurned: QueryDetail(
-				option: .cumulativeSum,
-				method: { stats in
-					stats.sumQuantity()?.doubleValue(for: HKUnit.kilocalorie())
-				}
-			),
-			.distanceWalkingRunning: QueryDetail(
-				option: .cumulativeSum,
-				method: { stats in
-					stats.sumQuantity()?.doubleValue(for: HKUnit.meter())
-				}
-			),
-			.stepCount: QueryDetail(
-				option: .cumulativeSum,
-				method: { stats in
-					stats.sumQuantity()?.doubleValue(for: HKUnit.count())
-				}
-			)
-		]
 		
-		for (identifier, queryDetail) in queryDetails {
+		for (identifier, queryDetail) in self.queryDetails {
 			executeHealthDataQuery(for: identifier, with: queryDetail)
 		}
 	}
@@ -128,7 +132,7 @@ class HealthKitManager {
 		
 		query.initialResultsHandler = { query, results, error in
 			if let statsCollection = results {
-				self.processStatisticsCollection(for: statsCollection, with: queryDetail)
+				self.processStatisticsCollection(statsCollection: statsCollection, identifier: identifier, queryDetail: queryDetail)
 			}
 			else {
 				print("Error executing query for \(identifier.rawValue): \(error!.localizedDescription)")
@@ -138,12 +142,23 @@ class HealthKitManager {
 		healthStore?.execute(query)
 	}
 	
-	private func processStatisticsCollection(for statsCollection: HKStatisticsCollection, with queryDetail: QueryDetail) {
+	private func processStatisticsCollection(statsCollection: HKStatisticsCollection, identifier: HKQuantityTypeIdentifier, queryDetail: QueryDetail) {
 		var values: [Double] = []
 		
 		statsCollection.enumerateStatistics(from: getStartOfWeek(), to: Date()) { statistics, _ in
 			let value = queryDetail.method(statistics) ?? 0.0
 			values.append(value)
+		}
+		
+		print("Collected values", values)
+		
+		DispatchQueue.main.async {
+			switch identifier {
+			case .heartRate:
+				self.heartRateData = values
+			default:
+				break
+			}
 		}
 	}
 	

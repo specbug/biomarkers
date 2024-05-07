@@ -28,7 +28,7 @@ struct ContentView: View {
 		VStack(spacing:0) {
 			ProfileHeader()
 			SegmentView()
-			ActivityGrid()
+			ActivityGrid(healthManager: HealthKitManager.shared)
 		}
 	}
 }
@@ -218,29 +218,36 @@ struct ActualChart: View {
 
 
 struct ActivityGrid: View {
+	@ObservedObject var healthManager: HealthKitManager
 	@State private var selectedCardIndex: Int? = nil
 	let columns: [GridItem] = [
 			GridItem(.flexible(minimum: 80)),
 			GridItem(.flexible(minimum: 80))
 		]
-	let activityTypes = ["Sleep", "Steps", "HR", "HRV", "MET", "VO2max"]
-	let activityValues = [8.2, 12, 60, 57, 60, 37.5]
-	let activityUnits = ["hrs", "k", "BPM", "ms", "hrs", "ml/kg/m"]
-	let activityAggs = ["μ", "μ", "μ", "μ", "Σ", "μ"]
-	let activityImages = ["bed.double.circle", "figure.walk.circle", "heart.circle", "arrow.clockwise.heart", "flame.circle", "timer.circle"]
+//	let activityTypes = ["Sleep", "Steps", "HR", "HRV", "MET", "VO2max"]
+//	let activityValues = [8.2, 12, 60, 57, 60, 37.5]
+//	let activityUnits = ["hrs", "k", "BPM", "ms", "hrs", "ml/kg/m"]
+//	let activityAggs = ["μ", "μ", "μ", "μ", "Σ", "μ"]
+//	let activityImages = ["bed.double.circle", "figure.walk.circle", "heart.circle", "arrow.clockwise.heart", "flame.circle", "timer.circle"]
+	
+//	let activityTypes = Array.init(repeating: "HR", count: 6)
+//	let activityValues = [healthManager.heartRateData.last]
+//	let activityUnits = Array.init(repeating: "BPM", count: 6)
+//	let activityAggs = Array.init(repeating: "μ", count: 6)
+//	let activityImages = Array.init(repeating: "heart.circle", count: 6)
 	
 	var body: some View {
 		ScrollView {
 			LazyVGrid(columns: columns, spacing: 10) {
-				ForEach(activityTypes.indices, id: \.self) { index in
+				ForEach(Array(zip(healthManager.heartRateData.indices, healthManager.heartRateData)), id: \.0) { index, hrValue in
 					MarkerCard(
-						marker: Text(activityTypes[index]),
-						agg: Text(activityAggs[index]),
-						value: Text(String(activityValues[index])),
-						unit: Text(activityUnits[index]),
-						favicon: Image(systemName: activityImages[index]),
-						isSelected: selectedCardIndex == index
-					)
+							marker: Text("HR"),
+							agg: Text("μ"),
+							value: Text(String(format: "%.1f", hrValue)),
+							unit: Text("BPM"),
+							favicon: Image(systemName: "heart.circle"),
+							isSelected: false
+						)
 						.background(selectedCardIndex == index ? Color.black : Color.white)
 						.cornerRadius(25)
 						.padding([index & 1 == 1 ? .horizontal : .leading, .bottom], 5)
