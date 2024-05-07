@@ -89,6 +89,11 @@ class HealthKitManager: NSObject, ObservableObject {
 	   ]
 	
 	@Published var heartRateData: [Double] = []
+	@Published var vo2MaxData: [Double] = []
+	@Published var hrvData: [Double] = []
+	@Published var rhrData: [Double] = []
+	@Published var stepData: [Double] = []
+	@Published var energyBurnedData: [Double] = []
 	
 	override init() {
 		if HKHealthStore.isHealthDataAvailable() {
@@ -156,6 +161,16 @@ class HealthKitManager: NSObject, ObservableObject {
 			switch identifier {
 			case .heartRate:
 				self.heartRateData = values
+			case .vo2Max:
+				self.vo2MaxData = values
+			case .restingHeartRate:
+				self.rhrData = values
+			case .heartRateVariabilitySDNN:
+				self.hrvData = values
+			case .activeEnergyBurned:
+				self.energyBurnedData = values
+			case .stepCount:
+				self.stepData = values
 			default:
 				break
 			}

@@ -224,12 +224,6 @@ struct ActivityGrid: View {
 			GridItem(.flexible(minimum: 80)),
 			GridItem(.flexible(minimum: 80))
 		]
-//	let activityTypes = ["Sleep", "Steps", "HR", "HRV", "MET", "VO2max"]
-//	let activityValues = [8.2, 12, 60, 57, 60, 37.5]
-//	let activityUnits = ["hrs", "k", "BPM", "ms", "hrs", "ml/kg/m"]
-//	let activityAggs = ["μ", "μ", "μ", "μ", "Σ", "μ"]
-//	let activityImages = ["bed.double.circle", "figure.walk.circle", "heart.circle", "arrow.clockwise.heart", "flame.circle", "timer.circle"]
-	
 	
 	var body: some View {
 		let activityDetails = getActivityDetails()
@@ -264,9 +258,19 @@ struct ActivityGrid: View {
 	}
 	
 	func getActivityDetails() -> [(type: String, unit: String, agg: String, icon: String, data: [Double])] {
+		//	let activityTypes = ["Sleep", "Steps", "HR", "HRV", "MET", "VO2max"]
+		//	let activityValues = [8.2, 12, 60, 57, 60, 37.5]
+		//	let activityUnits = ["hrs", "k", "BPM", "ms", "hrs", "ml/kg/m"]
+		//	let activityAggs = ["μ", "μ", "μ", "μ", "Σ", "μ"]
+		//	let activityImages = ["bed.double.circle", "figure.walk.circle", "heart.circle", "arrow.clockwise.heart", "flame.circle", "timer.circle"]
 		[
+//			("Sleep", "hrs", "μ", "bed.double.circle", healthManager.vo2MaxData),
+			("Steps", "k", "μ", "figure.walk.circle", healthManager.stepData),
 			("HR", "BPM", "μ", "heart.circle", healthManager.heartRateData),
-//			("VO2max", "ml/kg/min", "μ", "timer.circle", healthManager.vo2MaxData)
+			("HRV", "ms", "μ", "arrow.clockwise.heart", healthManager.hrvData),
+			("RHR", "BPM", "μ", "heart.circle", healthManager.rhrData),
+			("Energy Burned", "kcal", "Σ", "flame.circle", healthManager.energyBurnedData),
+			("VO2max", "ml/kg/min", "μ", "timer.circle", healthManager.vo2MaxData)
 		]
 	}
 }
