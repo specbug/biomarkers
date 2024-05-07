@@ -7,114 +7,171 @@
 
 import SwiftUI
 import HealthKit
+import Foundation
+
+typealias StatisticMethod = (HKStatistics) -> Double?
+
+struct QueryDetail {
+	let option: HKStatisticsOptions
+	let method: StatisticMethod
+}
 
 
 @main
-struct biomarkersApp: App {
+struct BiomarkersApp: App {
 	var body: some Scene {
 		WindowGroup {
 			ContentView()
 				.onAppear {
-					requestHealthKitAuth()
+					HealthKitManager.shared.requestAuthorization()
 				}
 		}
 	}
-	
-	func getLastWeekStartDate(from date: Date = Date()) -> Date {
-		return Calendar.current.date(byAdding: .day, value: -6, to: date)!
-	}
+}
 
-	func createLastWeekPredicate(from endDate: Date = Date()) -> NSPredicate {
-		let startDate = getLastWeekStartDate(from: endDate)
-		print("startDate", startDate)
-		print("endDate", endDate)
-		return HKQuery.predicateForSamples(withStart: startDate, end: endDate)
-	}
+class HealthKitManager {
+	static let shared = HealthKitManager()
+	private var healthStore: HKHealthStore?
 	
-	func createAnchorDate() -> Date {
-		// Set the arbitrary anchor date to Monday at 3:00 a.m.
-		let calendar: Calendar = .current
-		var anchorComponents = calendar.dateComponents([.day, .month, .year, .weekday], from: Date())
-		let offset = (7 + (anchorComponents.weekday ?? 0) - 2) % 7
-		
-		anchorComponents.day! -= offset
-		anchorComponents.hour = 3
-		
-		let anchorDate = calendar.date(from: anchorComponents)!
-		print("anchorDate", anchorDate)
-		
-		return anchorDate
-	}
-	
-	
-	
-	private func requestHealthKitAuth() {
-		var healthStore: HKHealthStore?
+	init() {
 		if HKHealthStore.isHealthDataAvailable() {
 			healthStore = HKHealthStore()
 		}
-		let allTypes = Set([HKObjectType.workoutType(),
-							HKQuantityType.quantityType(forIdentifier: .heartRate)!,
-							HKQuantityType.quantityType(forIdentifier: .vo2Max)!,
-							HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
-							HKQuantityType.quantityType(forIdentifier: .restingHeartRate)!,
-							HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
-							HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
-							HKObjectType.quantityType(forIdentifier: .stepCount)!])
+	}
+	
+	func requestAuthorization() {
+		let heathDataTypes = Set([
+			HKObjectType.workoutType(),
+			HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+			HKQuantityType.quantityType(forIdentifier: .vo2Max)!,
+			HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
+			HKQuantityType.quantityType(forIdentifier: .restingHeartRate)!,
+			HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
+			HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
+			HKObjectType.quantityType(forIdentifier: .stepCount)!
+		])
 		DispatchQueue.main.async {
-			healthStore?.requestAuthorization(toShare: nil, read: allTypes) { (success, error) in
+			self.healthStore?.requestAuthorization(toShare: nil, read: heathDataTypes) { success, error in
 				if !success {
-					let errorMessage = error
-					print(errorMessage ?? "Undefined error")
+					print("Authorization failed: \(error?.localizedDescription ?? "Undefined error")")
 				}
 				else {
-					print("hehe")
-					let initialResultsHandler: (HKStatisticsCollection) -> Void = { (statisticsCollection) in
-						var values: [Double] = []
-						statisticsCollection.enumerateStatistics(from: getLastWeekStartDate(), to: Date()) { (statistics, stop) in
-//							print("stats", statistics)
-							let statisticsQuantity = statistics.averageQuantity()
-//							print("stats qnt", statisticsQuantity)
-//							var value = statisticsQuantity?.doubleValue(for: .count())	// steps
-//							var value = statisticsQuantity?.doubleValue(for: HKUnit(from: "mL/min*kg"))	// vo2max
-//							var value = statisticsQuantity?.doubleValue(for: HKUnit(from: "count/min"))	// hr, rhr
-							var value = statisticsQuantity?.doubleValue(for: HKUnit(from: "ms"))	// hrv
-							if (value == nil) {
-								value = 0.0;
-							}
-							values.append(value!)
-						}
-						print("hi")
-						print(values)
-					}
-					print("2")
-					let query = HKStatisticsCollectionQuery(quantityType: HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
-															quantitySamplePredicate: createLastWeekPredicate(),
-															options: .discreteAverage,
-															anchorDate: createAnchorDate(),
-															intervalComponents: DateComponents(day: 1))
-							
-					// Set the results handler
-					query.initialResultsHandler = { query, results, error in
-						if let statsCollection = results {
-							print("hahaha")
-							print(statsCollection)
-							initialResultsHandler(statsCollection)
-						}
-						else {
-							print("oh no!")
-							print(error!)
-						}
-					}
-					print(query)
-					 
-					healthStore?.execute(query)
+					self.executeQueriesForAllDataTypes()
 				}
 			}
 		}
+	}
+	
+	private func executeQueriesForAllDataTypes() {
+		let queryDetails: [HKQuantityTypeIdentifier: QueryDetail] = [
+			.heartRate: QueryDetail(
+				option: .discreteAverage,
+				method: { stats in
+					stats.averageQuantity()?.doubleValue(for: HKUnit(from: "count/min"))
+				}
+			),
+			.vo2Max: QueryDetail(
+				option: .discreteAverage,
+				method: { stats in
+					stats.averageQuantity()?.doubleValue(for: HKUnit(from: "ml/kg/min"))
+				}
+			),
+			.heartRateVariabilitySDNN: QueryDetail(
+				option: .discreteAverage,
+				method: { stats in
+					stats.averageQuantity()?.doubleValue(for: HKUnit(from: "ms"))
+				}
+			),
+			.restingHeartRate: QueryDetail(
+				option: .discreteAverage,
+				method: { stats in
+					stats.averageQuantity()?.doubleValue(for: HKUnit(from: "count/min"))
+				}
+			),
+			.activeEnergyBurned: QueryDetail(
+				option: .cumulativeSum,
+				method: { stats in
+					stats.sumQuantity()?.doubleValue(for: HKUnit.kilocalorie())
+				}
+			),
+			.distanceWalkingRunning: QueryDetail(
+				option: .cumulativeSum,
+				method: { stats in
+					stats.sumQuantity()?.doubleValue(for: HKUnit.meter())
+				}
+			),
+			.stepCount: QueryDetail(
+				option: .cumulativeSum,
+				method: { stats in
+					stats.sumQuantity()?.doubleValue(for: HKUnit.count())
+				}
+			)
+		]
 		
+		for (identifier, queryDetail) in queryDetails {
+			executeHealthDataQuery(for: identifier, with: queryDetail)
+		}
+	}
+	
+	private func executeHealthDataQuery(for identifier: HKQuantityTypeIdentifier, with queryDetail: QueryDetail) {
+		guard let quantityType = HKObjectType.quantityType(forIdentifier: identifier) else {
+			return
+		}
+		let predicate = createCurrentWeekPredicate()
+		let query = HKStatisticsCollectionQuery(
+			quantityType: quantityType,
+			quantitySamplePredicate: predicate,
+			options: queryDetail.option,
+			anchorDate: getStartOfWeek(),
+			intervalComponents: DateComponents(day: 1)
+		)
+		
+		query.initialResultsHandler = { query, results, error in
+			if let statsCollection = results {
+				self.processStatisticsCollection(for: statsCollection, with: queryDetail)
+			}
+			else {
+				print("Error executing query for \(identifier.rawValue): \(error!.localizedDescription)")
+			}
+		}
+		
+		healthStore?.execute(query)
+	}
+	
+	private func processStatisticsCollection(for statsCollection: HKStatisticsCollection, with queryDetail: QueryDetail) {
+		var values: [Double] = []
+		
+		statsCollection.enumerateStatistics(from: getStartOfWeek(), to: Date()) { statistics, _ in
+			let value = queryDetail.method(statistics) ?? 0.0
+			values.append(value)
+		}
+	}
+	
+	private func getStartOfWeek() -> Date {
+		let now = Date()
+		let calendar = Calendar(identifier: .gregorian)
+		let timezone = TimeZone(identifier: "Asia/Kolkata") ?? TimeZone.current
+		var components = calendar.dateComponents(in: timezone, from: now)
+		components.weekday = 2 // Monday
+		components.hour = 0
+		components.minute = 0
+		components.second = 0
+
+		// Calculate the start of this week, adjusting for the calendar's weekday start
+		guard let startOfWeek = calendar.nextDate(after: now, matching: components, matchingPolicy: .nextTime, repeatedTimePolicy: .first, direction: .backward) else {
+			fatalError("Failed to calculate the start of the week.")
+		}
+		
+		return startOfWeek
+	}
+	
+	private func createCurrentWeekPredicate() -> NSPredicate {
+		let now = Date()
+		let startOfWeek = getStartOfWeek()
+		return HKQuery.predicateForSamples(withStart: startOfWeek, end: now, options: .strictStartDate)
 	}
 }
+
 
 struct biomarkersAppView: View {
 	var body: some View {
